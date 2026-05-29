@@ -5,11 +5,12 @@ yan
 
 
 Para iniciar o projeto:
-Precisa iniciar o mysql e depois rodar esses comandos
+Precisa iniciar o mysql(xamp) e depois rodar esses comandos
 npm run db:create
 npm run db:init
 npm run db:seed
 npm start
+Dps usar abrir o liveserver o html login e colocar o primeiro acesso
 
 oq cada um faz:
 npm run db:create Para criar o banco de dados depois.
