@@ -4,16 +4,19 @@ israel
 yan
 
 
-Para iniciar o projeto precisa digitar:
-
-npm run db:create Para criar o banco de dados depois.
-npm run db:init   Para criar as tabelas.
-npm start         Para rodar o projeto.
-
+Para iniciar o projeto:
+Precisa iniciar o mysql e depois rodar esses comandos
 npm run db:create
 npm run db:init
 npm run db:seed
 npm start
+
+oq cada um faz:
+npm run db:create Para criar o banco de dados depois.
+npm run db:init   Para criar as tabelas.
+mp, rim db:seed   Para criar o primeiro login de acesso.
+npm start         Para rodar o projeto.
+
 
 login do primeiro acesso
 Email: rh@coffice.com
