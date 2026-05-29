@@ -4,6 +4,7 @@ const cors = require('cors');
 const testRoutes = require('./routes/testRoutes');
 const authRoutes = require('./routes/authRoutes');
 const dbTestRoutes = require('./routes/dbTestRoutes');
+const protectedRoutes = require('./routes/protectedRoutes');
 
 const app = express();
 
@@ -16,3 +17,4 @@ app.use('/auth', authRoutes);
 module.exports = app;
 
 app.use('/', dbTestRoutes);
+app.use('/api', protectedRoutes);

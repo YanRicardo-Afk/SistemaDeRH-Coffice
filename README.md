@@ -12,4 +12,10 @@ npm start         Para rodar o projeto.
 
 npm run db:create
 npm run db:init
+npm run db:seed
 npm start
+
+login do primeiro acesso
+Email: rh@coffice.com
+Senha: 123456
+Perfil: rh
