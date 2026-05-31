@@ -18,4 +18,25 @@ router.get(
     funcionarioController.listar
 );
 
+router.get(
+    '/:id',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.buscarPorId
+);
+
+router.post(
+    '/',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.criar
+);
+
+router.put(
+    '/:id',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.atualizar
+);
+
 module.exports = router;
