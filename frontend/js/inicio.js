@@ -22,10 +22,10 @@ async function carregarUsuario() {
 
         // coloca na tela
         document.getElementById('saudacao').textContent =
-            `Olá, usuário ID ${data.usuario.id}`;
+        `Olá, ${data.nome_completo}`;
 
         document.getElementById('perfil').textContent =
-            `Perfil: ${data.usuario.perfil}`;
+        `Perfil: ${data.perfil}`;
 
     } catch (error) {
         console.log(error);

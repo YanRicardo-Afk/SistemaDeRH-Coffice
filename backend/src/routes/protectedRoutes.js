@@ -7,12 +7,32 @@ const roleMiddleware = require('../middlewares/roleMiddleware');
 
 
 // ROTA QUE QUALQUER LOGADO PODE ACESSAR
-router.get('/perfil', authMiddleware, (req, res) => {
+const pool = require('../config/database');
 
-    res.json({
-        mensagem: 'Rota protegida',
-        usuario: req.user
-    });
+router.get('/perfil', authMiddleware, async (req, res) => {
+
+    try {
+
+        const [rows] = await pool.execute(
+            'SELECT id, nome_completo, perfil, email FROM funcionarios WHERE id = ?',
+            [req.user.id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                erro: 'Usuário não encontrado'
+            });
+        }
+
+        res.json(rows[0]);
+
+    } catch (error) {
+
+        return res.status(500).json({
+            erro: 'Erro interno'
+        });
+
+    }
 
 });
 

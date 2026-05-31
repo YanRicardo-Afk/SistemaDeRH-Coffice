@@ -17,6 +17,7 @@ async function createTables() {
                 telefone VARCHAR(20),
                 cargo VARCHAR(100),
                 data_admissao DATE,
+                data_ferias DATE,
                 perfil ENUM('rh', 'funcionario') NOT NULL,
                 senha_hash TEXT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
