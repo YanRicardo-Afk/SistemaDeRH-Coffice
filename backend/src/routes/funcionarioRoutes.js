@@ -38,5 +38,11 @@ router.put(
     roleMiddleware(['rh']),
     funcionarioController.atualizar
 );
+router.delete(
+    '/:id',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.excluir
+);
 
 module.exports = router;

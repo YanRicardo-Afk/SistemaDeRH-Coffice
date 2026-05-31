@@ -148,6 +148,36 @@ async buscarPorId(req, res) {
     }
 
 }
+async excluir(req, res) {
+
+    try {
+
+        const { id } = req.params;
+
+        const removidos =
+            await funcionarioModel.excluir(id);
+
+        if (!removidos) {
+            return res.status(404).json({
+                erro: 'Funcionário não encontrado'
+            });
+        }
+
+        res.json({
+            mensagem: 'Funcionário removido com sucesso'
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            erro: 'Erro ao remover funcionário'
+        });
+
+    }
+
+}
 }
 
 module.exports = new FuncionarioController();

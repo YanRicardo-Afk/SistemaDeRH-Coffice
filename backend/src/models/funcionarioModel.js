@@ -160,6 +160,15 @@ class FuncionarioModel {
         id
     ]);
 }
+async excluir(id) {
+
+    const [result] = await pool.execute(
+        'DELETE FROM funcionarios WHERE id = ?',
+        [id]
+    );
+
+    return result.affectedRows;
+}
 }
 
 module.exports = new FuncionarioModel();

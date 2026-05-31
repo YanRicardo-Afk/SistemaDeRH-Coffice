@@ -9,6 +9,7 @@ const funcionarioRoutes =
     require('./routes/funcionarioRoutes');
 const pontoRoutes =
     require('./routes/pontoRoutes');
+    const holeriteRoutes = require('./routes/holeriteRoutes');
 
 
 const app = express();
@@ -25,3 +26,4 @@ app.use('/', dbTestRoutes);
 app.use('/api', protectedRoutes);
 app.use('/funcionarios', funcionarioRoutes);
 app.use('/pontos', pontoRoutes);
+app.use('/holerites', holeriteRoutes);
