@@ -7,6 +7,9 @@ const dbTestRoutes = require('./routes/dbTestRoutes');
 const protectedRoutes = require('./routes/protectedRoutes');
 const funcionarioRoutes =
     require('./routes/funcionarioRoutes');
+const pontoRoutes =
+    require('./routes/pontoRoutes');
+
 
 const app = express();
 
@@ -21,3 +24,4 @@ module.exports = app;
 app.use('/', dbTestRoutes);
 app.use('/api', protectedRoutes);
 app.use('/funcionarios', funcionarioRoutes);
+app.use('/pontos', pontoRoutes);
