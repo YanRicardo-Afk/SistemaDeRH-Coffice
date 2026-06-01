@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastrarHolerite</title>
+</head>
+<body>
+    <h1>Cadastrar Holerite</h1>
+
+<form id="formHolerite">
+
+    <input
+        type="number"
+        id="funcionarioId"
+        placeholder="ID do Funcionário"
+        required
+    >
+
+    <input
+        type="text"
+        id="descricao"
+        placeholder="Descrição"
+        required
+    >
+
+    <input
+        type="number"
+        step="0.01"
+        id="salario"
+        placeholder="Salário"
+        required
+    >
+
+    <input
+        type="number"
+        step="0.01"
+        id="inss"
+        placeholder="INSS"
+        required
+    >
+
+    <input
+        type="number"
+        step="0.01"
+        id="onibus"
+        placeholder="Ônibus Fretado"
+        required
+    >
+
+    <input
+        type="number"
+        step="0.01"
+        id="vale"
+        placeholder="Vale Alimentação"
+        required
+    >
+
+    <button type="submit">
+        Salvar Holerite
+    </button>
+
+</form>
+
+<p id="mensagem"></p>
+
+<script src="../js/cadastrarHolerite.js"></script>
+</body>
+</html>

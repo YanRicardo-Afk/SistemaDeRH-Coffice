@@ -22,18 +22,47 @@ async function carregarFuncionario() {
     const funcionario =
         await response.json();
 
-    document.getElementById('nome').value =
-        funcionario.nome_completo;
+    document.getElementById('matricula').textContent =
+    funcionario.matricula;
 
-    document.getElementById('email').value =
-        funcionario.email;
+document.getElementById('nome').textContent =
+    funcionario.nome_completo;
 
-    document.getElementById('cargo').value =
-        funcionario.cargo;
+document.getElementById('statusCivil').textContent =
+    funcionario.status_civil;
 
-    document.getElementById('dataFerias').value =
-        funcionario.data_ferias || '';
+document.getElementById('dataNascimento').textContent =
+    funcionario.data_nascimento;
 
+document.getElementById('endereco').textContent =
+    funcionario.endereco;
+
+document.getElementById('email').textContent =
+    funcionario.email;
+
+document.getElementById('telefone').textContent =
+    funcionario.telefone;
+
+document.getElementById('cargo').textContent =
+    funcionario.cargo;
+
+document.getElementById('dataAdmissao').textContent =
+    funcionario.data_admissao;
+
+document.getElementById('dataFerias').textContent =
+    funcionario.data_ferias || 'Não definida';
+
+document.getElementById('perfil').textContent =
+    funcionario.perfil;
 }
 
 carregarFuncionario();
+
+document
+    .getElementById('btnEditar')
+    .addEventListener('click', () => {
+
+        window.location.href =
+            `editar-funcionario.html?id=${id}`;
+
+    });
