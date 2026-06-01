@@ -39,22 +39,19 @@ async function carregarFuncionarios(
         funcionarios.forEach(funcionario => {
 
             lista.innerHTML += `
-                <div>
-                    <h3>${funcionario.nome_completo}</h3>
+            <div
+                class="funcionario-card"
+                onclick="abrirFuncionario(${funcionario.id})"
+            >
+                <h3>${funcionario.nome_completo}</h3>
 
-                    <p>
-                        Matrícula:
-                        ${funcionario.matricula}
-                    </p>
+                <p>Matrícula: ${funcionario.matricula}</p>
 
-                    <p>
-                        Cargo:
-                        ${funcionario.cargo}
-                    </p>
+                <p>Cargo: ${funcionario.cargo}</p>
 
-                    <hr>
-                </div>
-            `;
+                <hr>
+            </div>
+        `;
 
         });
 
@@ -90,3 +87,8 @@ document
             'cadastrar-funcionario.html';
 
     });
+
+    function abrirFuncionario(id){
+        window.location.href = 
+        `funcionario.html?id=${id}`;
+    }
