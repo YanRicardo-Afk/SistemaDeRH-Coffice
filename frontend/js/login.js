@@ -22,13 +22,17 @@ form.addEventListener('submit', async (e) => {
         if (!response.ok) {
             erro.textContent = data.erro;
             return;
-        }
-
-        // salva token
+        };
         localStorage.setItem('token', data.token);
 
         // salva perfil
         localStorage.setItem('perfil', data.usuario.perfil);
+
+        // salva dados do usuário
+        localStorage.setItem(
+            'usuario',
+            JSON.stringify(data.usuario)
+        );
 
         // redireciona
         window.location.href = 'inicio.html';

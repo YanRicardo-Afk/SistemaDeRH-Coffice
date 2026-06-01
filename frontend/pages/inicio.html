@@ -2,38 +2,48 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - Coffice</title>
-    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/inicio.css">
 </head>
 <body>
 
-    <!-- MENU LATERAL -->
- <div class="sidebar">
-    <ul>
-        <li>Início</li>
-        <li id="menu-funcionarios">Funcionários</li>
-        <li>Holerites</li>
-        <li>Pontos</li>
-        <li>Configurações</li>
-        <li id="logout">Sair</li>
-    </ul>
-</div>
+    <header>
+        <h2>Coffice</h2>
 
-    <!-- CONTEÚDO -->
-    <div class="content">
+        <div id="usuario-info">
+            Carregando usuário...
+        </div>
+    </header>
 
-        <h2 id="saudacao">Olá</h2>
-        <p id="perfil"></p>
+    <main>
 
-        <button>Bater Ponto</button>
+        <h1 id="saudacao">
+            Olá!
+        </h1>
 
-        <div class="avisos">
-            <p>📢 Aviso 1</p>
-            <p>📢 Aviso 2</p>
+        <div class="acoes-ponto">
+            <button id="btnEntrada">
+                Bater Entrada
+            </button>
+
+            <button id="btnSaida">
+                Bater Saída
+            </button>
         </div>
 
-    </div>
+        <section class="avisos">
+            <h2>Avisos</h2>
+
+            <div id="listaAvisos">
+                Nenhum aviso cadastrado.
+            </div>
+        </section>
+
+    </main>
 
     <script src="../js/inicio.js"></script>
+
 </body>
 </html>

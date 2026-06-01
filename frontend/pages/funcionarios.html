@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Funcionários</title>
+
+    <link rel="stylesheet" href="../css/funcionarios.css">
+</head>
+<body>
+
+    <h1>Funcionários</h1>
+
+    <input
+        type="text"
+        id="pesquisaNome"
+        placeholder="Pesquisar funcionário"
+    >
+
+    <button id="btnPesquisar">
+        Pesquisar
+    </button>
+
+    <select id="filtroCargo">
+        <option value="">Todos os cargos</option>
+        <option value="RH">RH</option>
+        <option value="Analista">Analista</option>
+        <option value="Gerente">Gerente</option>
+        <option value="Desenvolvedor">Desenvolvedor</option>
+    </select>
+    
+    <button id="btnNovoFuncionario">
+    + Cadastrar Funcionário
+    </button>
+
+    <div id="listaFuncionarios">
+
+    </div>
+
+    <script src="../js/funcionarios.js"></script>
+
+</body>
+</html>

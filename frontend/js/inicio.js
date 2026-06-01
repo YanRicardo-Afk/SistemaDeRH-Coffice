@@ -1,60 +1,63 @@
-// pega dados salvos
 const token = localStorage.getItem('token');
-const perfil = localStorage.getItem('perfil');
 
-// se não tiver token → volta pro login
 if (!token) {
-    window.location.href = 'login.html';
+    window.location.href = '/pages/login.html';
 }
 
-// pega nome do usuário via API
-async function carregarUsuario() {
+const usuario = JSON.parse(
+    localStorage.getItem('usuario')
+);
 
-    try {
+document.getElementById('usuario-info').innerText =
+    `${usuario.nome} (${usuario.perfil})`;
 
-        const response = await fetch('http://localhost:3000/api/perfil', {
+document.getElementById('saudacao').innerText =
+    `Olá, ${usuario.nome}`;
+
+const btnEntrada =
+    document.getElementById('btnEntrada');
+
+const btnSaida =
+    document.getElementById('btnSaida');
+
+btnEntrada.addEventListener('click', async () => {
+
+    const token =
+        localStorage.getItem('token');
+
+    const response = await fetch(
+        'http://localhost:3000/pontos/entrada',
+        {
+            method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        });
+        }
+    );
 
-        const data = await response.json();
+    const data = await response.json();
 
-        // coloca na tela
-        document.getElementById('saudacao').textContent =
-        `Olá, ${data.nome_completo}`;
+    alert(data.mensagem || data.erro);
 
-        document.getElementById('perfil').textContent =
-        `Perfil: ${data.perfil}`;
+});
 
-    } catch (error) {
-        console.log(error);
-    }
-}
+btnSaida.addEventListener('click', async () => {
 
-carregarUsuario();
+    const token =
+        localStorage.getItem('token');
 
+    const response = await fetch(
+        'http://localhost:3000/pontos/saida',
+        {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
 
-// esconder menu funcionários se não for RH
-if (perfil !== 'rh') {
-    document.getElementById('menu-funcionarios').style.display = 'none';
-}
+    const data = await response.json();
 
-
-const logoutBtn = document.getElementById('logout');
-
-logoutBtn.addEventListener('click', () => {
-
-    // limpa dados
-    localStorage.removeItem('token');
-    localStorage.removeItem('perfil');
-
-    // volta pro login
-    const confirmar = confirm('Deseja sair?');
-
-    if (confirmar) {
-        localStorage.clear();
-        window.location.href = 'login.html';
-}
+    alert(data.mensagem || data.erro);
 
 });

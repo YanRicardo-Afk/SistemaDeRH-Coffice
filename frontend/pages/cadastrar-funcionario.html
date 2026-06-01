@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Funcionário</title>
+</head>
+<body>
+
+    <h1>Cadastrar Funcionário</h1>
+
+<form id="formFuncionario">
+
+    <input
+        type="text"
+        id="matricula"
+        placeholder="Matrícula"
+        required
+    >
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Nome Completo"
+        required
+    >
+
+    <select id="statusCivil" required>
+        <option value="">Status Civil</option>
+        <option value="Solteiro">Solteiro</option>
+        <option value="Casado">Casado</option>
+        <option value="Divorciado">Divorciado</option>
+        <option value="Viúvo">Viúvo</option>
+    </select>
+
+    <input
+        type="date"
+        id="dataNascimento"
+        required
+    >
+
+    <input
+        type="text"
+        id="endereco"
+        placeholder="Endereço"
+        required
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        required
+    >
+
+    <input
+        type="text"
+        id="telefone"
+        placeholder="Telefone"
+        required
+    >
+
+    <input
+        type="text"
+        id="cargo"
+        placeholder="Cargo"
+        required
+    >
+
+    <input
+        type="date"
+        id="dataAdmissao"
+        required
+    >
+
+    <input
+        type="date"
+        id="dataFerias"
+    >
+
+    <select id="perfil" required>
+        <option value="funcionario">Funcionário</option>
+        <option value="rh">RH</option>
+    </select>
+
+    <input
+        type="password"
+        id="senha"
+        placeholder="Senha"
+        required
+    >
+
+    <button type="submit">
+        Salvar
+    </button>
+
+</form>
+
+    <p id="mensagem"></p>
+
+    <script src="../js/cadastrarFuncionario.js"></script>
+
+</body>
+</html>
