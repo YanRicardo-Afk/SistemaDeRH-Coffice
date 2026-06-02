@@ -1,8 +1,98 @@
+/* inicio.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5CDB1;
+    padding: 24px 28px;
+}
 
-.aviso-imagem{
-    
-    height: 400px;
-    width: 350px;
-    
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3E1D0E;
+}
+
+#usuario-info {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3E1D0E;
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+}
+
+/* Saudação */
+#saudacao {
+    font-size: 26px;
+    font-weight: 600;
+    color: #3E1D0E;
+    margin-bottom: 20px;
+}
+
+/* Botões de ponto */
+.acoes-ponto {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.acoes-ponto button {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s;
+}
+
+#btnEntrada {
+    background: #A1663C;
+    color: #fff;
+}
+
+#btnSaida {
+    background: transparent;
+    color: #3E1D0E;
+    border: 1.5px solid #A1663C;
+}
+
+.acoes-ponto button:hover {
+    opacity: 0.85;
+}
+
+/* Avisos */
+.avisos h2 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #A1663C;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+}
+
+#listaAvisos {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.aviso-imagem {
+    width: 400px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
 }

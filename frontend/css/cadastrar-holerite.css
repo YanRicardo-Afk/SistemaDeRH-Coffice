@@ -1,0 +1,97 @@
+/* cadastrar-holerite.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5CDB1;
+    padding: 28px 32px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3E1D0E;
+    border-bottom: 2px solid #A1663C;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+}
+
+#formHolerite {
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Select e Descrição ocupam linha inteira */
+#funcionarioId,
+#descricao {
+    grid-column: 1 / -1;
+}
+
+/* Divisor visual entre campos e valores */
+#formHolerite hr {
+    grid-column: 1 / -1;
+    border: none;
+    border-top: 0.5px solid rgba(62, 29, 14, 0.15);
+    margin: 0;
+}
+
+/* Botão ocupa linha inteira */
+#formHolerite button[type="submit"] {
+    grid-column: 1 / -1;
+}
+
+/* Inputs e Select */
+#formHolerite input,
+#formHolerite select {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #3E1D0E;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(62, 29, 14, 0.25);
+    border-radius: 8px;
+    padding: 9px 12px;
+    outline: none;
+    width: 100%;
+}
+
+#formHolerite input::placeholder {
+    color: rgba(62, 29, 14, 0.4);
+}
+
+#formHolerite input:focus,
+#formHolerite select:focus {
+    border-color: #A1663C;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+/* Botão */
+#formHolerite button[type="submit"] {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 8px;
+    border: none;
+    background: #A1663C;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+#formHolerite button[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+/* Mensagem de retorno */
+#mensagem {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #3B6D11;
+    min-height: 18px;
+}

@@ -1,0 +1,116 @@
+/* holerites-funcionario.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5CDB1;
+    padding: 28px 32px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3E1D0E;
+    border-bottom: 2px solid #A1663C;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+}
+
+/* Card de cada holerite — aplique via JS ao montar o HTML */
+.holerite-card {
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+
+/* Nome do funcionário */
+.holerite-nome {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3E1D0E;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.holerite-nome::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: #A1663C;
+    border-radius: 2px;
+}
+
+/* Grid de campos (salário, inss, benefícios...) */
+.holerite-campos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 20px;
+    margin-bottom: 16px;
+}
+
+.holerite-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.holerite-campo-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #A1663C;
+}
+
+.holerite-campo-valor {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3E1D0E;
+}
+
+/* Divisor */
+.holerite-divider {
+    border: none;
+    border-top: 0.5px solid rgba(62, 29, 14, 0.15);
+    margin: 14px 0;
+}
+
+/* Totais */
+.holerite-totais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.holerite-total-item {
+    background: rgba(62, 29, 14, 0.06);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.holerite-total-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #A1663C;
+}
+
+.holerite-total-valor {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3E1D0E;
+}
+
+/* Total líquido em verde */
+.holerite-total-liquido .holerite-total-valor {
+    color: #3B6D11;
+}

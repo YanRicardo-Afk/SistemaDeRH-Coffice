@@ -1,0 +1,131 @@
+/* holerites.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5CDB1;
+    padding: 28px 32px;
+}
+
+/* Topo: título + botão lado a lado */
+h1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 600;
+    color: #3E1D0E;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #A1663C;
+    margin-right: 20px;
+    vertical-align: middle;
+    margin-bottom: 24px;
+}
+
+/* Link de cadastrar */
+a[href="cadastrar-holerite.html"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #A1663C;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: opacity 0.15s;
+    margin-bottom: 24px;
+}
+
+a[href="cadastrar-holerite.html"]:hover {
+    opacity: 0.85;
+}
+
+a[href="cadastrar-holerite.html"] span:first-child::before {
+    content: '+';
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Tabela */
+#listaHolerites {
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#listaHolerites table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+#listaHolerites thead tr {
+    background: rgba(62, 29, 14, 0.08);
+}
+
+#listaHolerites thead th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #A1663C;
+}
+
+#listaHolerites tbody tr {
+    border-top: 0.5px solid rgba(62, 29, 14, 0.12);
+    transition: background 0.12s;
+}
+
+#listaHolerites tbody tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#listaHolerites tbody td {
+    padding: 12px 16px;
+    color: #3E1D0E;
+    font-weight: 400;
+}
+
+/* Badges de status — aplique via JS: class="badge-pago" ou "badge-pendente" */
+.badge-pago {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(99, 153, 34, 0.18);
+    color: #3B6D11;
+}
+
+.badge-pendente {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(186, 117, 23, 0.15);
+    color: #854F0B;
+}
+
+/* Botão Ver dentro da tabela */
+#listaHolerites button {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1.5px solid #A1663C;
+    background: transparent;
+    color: #3E1D0E;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+#listaHolerites button:hover {
+    opacity: 0.75;
+}
