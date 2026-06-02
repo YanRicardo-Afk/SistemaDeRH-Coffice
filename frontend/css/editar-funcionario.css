@@ -1,0 +1,203 @@
+/* ===== COFFICE — editar-funcionario.css ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg:           #E5CDB1;
+  --dark:         #3E1D0E;
+  --accent:       #A1663C;
+  --accent-hover: #8a5230;
+  --danger:       #b03a2e;
+  --danger-hover: #922b21;
+  --text:         #1a1008;
+  --text-muted:   #6b4c35;
+  --border:       rgba(62, 29, 14, 0.18);
+  --radius:       10px;
+  --font:         'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Card do formulário ── */
+#formFuncionario {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 36px 36px;
+  max-width: 780px;
+}
+
+/* ── Grid ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+/* ── Grupos label + input ── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Inputs e selects ── */
+#formFuncionario input,
+#formFuncionario select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fdf8f3;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#formFuncionario input::placeholder {
+  color: #b8956d;
+}
+
+#formFuncionario input:focus,
+#formFuncionario select:focus {
+  border-color: var(--accent);
+  background: #fff;
+}
+
+#formFuncionario select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-color: #fdf8f3;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+#formFuncionario input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* ── Divisores de seção ── */
+.section-label {
+  grid-column: 1 / -1;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+/* ── Rodapé com ações ── */
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* Botão salvar */
+#formFuncionario button[type="submit"] {
+  padding: 11px 32px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#formFuncionario button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+/* Botão excluir — destrutivo, discreto até o hover */
+#btnExcluir {
+  padding: 11px 24px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+#btnExcluir:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: #fff5f5;
+}
+
+/* ── Mensagem de feedback ── */
+#mensagem {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  min-height: 20px;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 600px) {
+  #formFuncionario {
+    padding: 24px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: 1;
+  }
+
+  .form-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .form-footer button {
+    width: 100%;
+    text-align: center;
+  }
+}
