@@ -1,0 +1,107 @@
+.menu {
+
+    width: 70px;
+
+    height: 100vh;
+
+    background: #3E1D0E;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+    font-family: 'Inter', sans-serif;
+
+}
+
+.menu:hover {
+
+    width: 250px;
+
+}
+
+.logo-area {
+
+    padding: 20px;
+
+}
+
+#logoCompleta {
+
+    display: none;
+
+    width: 150px;
+
+}
+
+.menu:hover #logoCompleta {
+
+    display: block;
+
+}
+
+.menu:hover #logoPequena {
+
+    display: none;
+
+}
+
+.menu-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.menu a {
+
+    color: #E5CDB1;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+}
+
+.menu a:hover {
+
+    background: #2D1408;
+
+}
+
+.texto-menu {
+
+    display: none;
+
+}
+
+.menu:hover .texto-menu {
+
+    display: inline;
+
+}
+
+.sair {
+
+    margin-bottom: 20px;
+
+}
