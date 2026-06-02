@@ -33,8 +33,4 @@ app.use(
     express.static(
         path.join(__dirname, '../../frontend')
     )
-);,
-0,
-
-
-0
+);
