@@ -20,7 +20,7 @@
 
     overflow: hidden;
 
-    transition: 0.3s;
+    transition:  width 0.35s ease;;
 
     font-family: 'Inter', sans-serif;
 
@@ -86,6 +86,16 @@
 
     background: #2D1408;
 
+    border-radius: 8px;
+
+}
+
+.menu a.ativo {
+
+    background: #2D1408;
+
+    border-left: 4px solid #E5CDB1;
+
 }
 
 .texto-menu {
@@ -103,5 +113,24 @@
 .sair {
 
     margin-bottom: 20px;
+
+}
+
+.icone-menu-logo {
+
+    width: 24px;
+
+    height: 24px;
+
+    flex-shrink: 0;
+
+}
+.icone-menu {
+
+    width: 24px;
+
+    height: 24px;
+
+    flex-shrink: 0;
 
 }

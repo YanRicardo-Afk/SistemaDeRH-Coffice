@@ -19,3 +19,22 @@ document
             'login.html';
 
     });
+
+    const paginaAtual =
+    window.location.pathname;
+
+document
+    .querySelectorAll('.menu a')
+    .forEach(link => {
+
+        if (
+            paginaAtual.includes(
+                link.getAttribute('href')
+            )
+        ) {
+
+            link.classList.add('ativo');
+
+        }
+
+    });
