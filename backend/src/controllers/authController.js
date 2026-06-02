@@ -52,6 +52,7 @@ class AuthController {
                 usuario: {
                     id: usuario.id,
                     nome: usuario.nome_completo,
+                    email: usuario.email,
                     perfil: usuario.perfil
                 }
             });

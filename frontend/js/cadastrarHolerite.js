@@ -1,8 +1,42 @@
+const token =
+    localStorage.getItem('token');
+
+
+async function carregarFuncionarios() {
+
+    const response = await fetch(
+        'http://localhost:3000/funcionarios',
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+
+    const funcionarios =
+        await response.json();
+
+    const select =
+        document.getElementById('funcionarioId');
+
+    funcionarios.forEach(funcionario => {
+
+        select.innerHTML += `
+            <option value="${funcionario.id}">
+                ${funcionario.nome_completo}
+            </option>
+        `;
+
+    });
+
+}
+
+carregarFuncionarios();
+
+
 const form =
     document.getElementById('formHolerite');
 
-const token =
-    localStorage.getItem('token');
 
 form.addEventListener('submit', async (e) => {
 

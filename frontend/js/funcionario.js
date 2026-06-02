@@ -66,3 +66,21 @@ document
             `editar-funcionario.html?id=${id}`;
 
     });
+
+document
+    .getElementById('btnHolerites')
+    .addEventListener('click', () => {
+
+        window.location.href =
+            `holerites-funcionario.html?id=${id}`;
+
+    });
+
+document
+    .getElementById('btnPontos')
+    .addEventListener('click', () => {
+
+        window.location.href =
+            `pontos-funcionario.html?id=${id}`;
+
+    });
