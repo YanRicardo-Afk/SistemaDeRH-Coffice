@@ -10,7 +10,7 @@ npm run db:create
 npm run db:init
 npm run db:seed
 npm start
-Dps usar abrir o liveserver o html login e colocar o primeiro acesso
+Dps usar acessar /pages/login.html
 
 oq cada um faz:
 npm run db:create Para criar o banco de dados depois.
