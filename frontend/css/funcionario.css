@@ -1,0 +1,87 @@
+/* funcionario.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #E5CDB1;
+    padding: 28px 32px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3E1D0E;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #A1663C;
+    padding-bottom: 10px;
+}
+
+.card-funcionario {
+    background: rgba(255, 255, 255, 0.35);
+    border: 0.5px solid rgba(62, 29, 14, 0.2);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+}
+
+.card-funcionario p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card-funcionario strong {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #A1663C;
+}
+
+.card-funcionario span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3E1D0E;
+}
+
+/* Endereço ocupa a linha inteira */
+.card-funcionario p:has(#endereco) {
+    grid-column: 1 / -1;
+}
+
+.btn-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s;
+}
+
+#btnEditar {
+    background: #A1663C;
+    color: #fff;
+}
+
+#btnHolerites,
+#btnPontos {
+    background: transparent;
+    color: #3E1D0E;
+    border: 1.5px solid #A1663C;
+}
+
+button:hover {
+    opacity: 0.85;
+}
