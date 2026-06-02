@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Funcionários</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionários</title>
 
-    <link rel="stylesheet" href="../css/funcionarios.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/funcionarios.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/menu.css">
 </head>
 <body>
-    <div id="menu"></div>
-    <h1>Funcionários</h1>
+  <div id="menu"></div>
 
+  <h1>Funcionários</h1>
+
+  <!-- Barra de controles -->
+  <div class="toolbar">
     <input
-        type="text"
-        id="pesquisaNome"
-        placeholder="Pesquisar funcionário"
+      type="text"
+      id="pesquisaNome"
+      placeholder="Pesquisar funcionário"
     >
 
-    <button id="btnPesquisar">
-        Pesquisar
-    </button>
+    <button id="btnPesquisar">Pesquisar</button>
 
     <select id="filtroCargo">
-        <option value="">Todos os cargos</option>
-        <option value="RH">RH</option>
-        <option value="Analista">Analista</option>
-        <option value="Gerente">Gerente</option>
-        <option value="Desenvolvedor">Desenvolvedor</option>
+      <option value="">Cargo ▾</option>
+      <option value="RH">RH</option>
+      <option value="Analista">Analista</option>
+      <option value="Gerente">Gerente</option>
+      <option value="Desenvolvedor">Desenvolvedor</option>
     </select>
-    
-    <button id="btnNovoFuncionario">
-    + Cadastrar Funcionário
-    </button>
 
-    <div id="listaFuncionarios">
+    <button id="btnNovoFuncionario">+ Cadastrar Novo</button>
+  </div>
 
-    </div>
+  <!-- Lista populada pelo JS -->
+  <div id="listaFuncionarios"></div>
 
-    <script src="../js/funcionarios.js"></script>
-    <script src="../js/carregarMenu.js"></script>
+  <script src="../js/funcionarios.js"></script>
+  <script src="../js/carregarMenu.js"></script>
 </body>
 </html>

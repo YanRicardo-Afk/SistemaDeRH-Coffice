@@ -1,0 +1,213 @@
+/* ===== COFFICE — funcionarios.css ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg:           #E5CDB1;
+  --dark:         #3E1D0E;
+  --accent:       #A1663C;
+  --accent-hover: #8a5230;
+  --text:         #1a1008;
+  --text-muted:   #6b4c35;
+  --border:       rgba(62, 29, 14, 0.15);
+  --card-bg:      rgba(255, 255, 255, 0.45);
+  --radius:       10px;
+  --radius-sm:    6px;
+  --font:         'Inter', sans-serif;
+}
+
+/* ── Base ── */
+body {
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+  /* margin-left e padding vêm do main.css — não alterados */
+}
+
+/* ── Cabeçalho da página ── */
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Barra de controles ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+/* Campo de pesquisa */
+#pesquisaNome {
+  flex: 1 1 220px;
+  min-width: 180px;
+  padding: 10px 16px 10px 38px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b4c35' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#pesquisaNome::placeholder {
+  color: var(--text-muted);
+}
+
+#pesquisaNome:focus {
+  border-color: var(--accent);
+}
+
+/* Botão pesquisar — discreto, só ícone implícito */
+#btnPesquisar {
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--dark);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+#btnPesquisar:hover {
+  border-color: var(--accent);
+  background: #fdf6ee;
+}
+
+/* Select filtro de cargo */
+#filtroCargo {
+  padding: 10px 36px 10px 14px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  color: var(--dark);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  /* seta customizada */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: border-color 0.2s;
+}
+
+#filtroCargo:focus {
+  border-color: var(--accent);
+}
+
+/* Botão cadastrar — destaque */
+#btnNovoFuncionario {
+  margin-left: auto;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+#btnNovoFuncionario:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Lista de funcionários ── */
+#listaFuncionarios {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Cards gerados pelo JS */
+.funcionario-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.funcionario-card:last-child {
+  border-bottom: none;
+}
+
+.funcionario-card:hover {
+  background: #fdf6ee;
+}
+
+/* Itens dentro do card (h3 e p gerados pelo JS) */
+.funcionario-card h3 {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 200px;
+  margin: 0;
+}
+
+.funcionario-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Remove o <hr> gerado pelo JS — já temos border-bottom no card */
+.funcionario-card hr {
+  display: none;
+}
+
+/* Estado vazio */
+#listaFuncionarios:empty::after {
+  content: 'Nenhum funcionário encontrado.';
+  display: block;
+  padding: 32px 20px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ── Responsivo ── */
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #btnNovoFuncionario {
+    margin-left: 0;
+  }
+
+  .funcionario-card {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .funcionario-card h3 {
+    min-width: unset;
+    width: 100%;
+  }
+}
