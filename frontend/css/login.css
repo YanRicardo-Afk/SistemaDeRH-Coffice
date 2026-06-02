@@ -1,0 +1,290 @@
+/* ===== COFFICE LOGIN — style.css ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark:       #3E1D0E;
+  --bg-card-left:  #E5CDB1;
+  --text-light:    #E5CDB1;
+  --text-muted:    #c4a882;
+  --accent:        #A1663C;
+  --accent-hover:  #8a5230;
+  --input-bg:      #f5ece0;
+  --radius-card:   22px;
+  --radius-input:  50px;
+  --font:          'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ══ FUNDO BLUR (reflexo desfocado do card) ══ */
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-blur__card {
+  display: flex;
+  width: min(860px, 95vw);
+  height: 420px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  /* escala maior para "vazar" pelas bordas como na foto */
+  transform: scale(1.18);
+  filter: blur(28px);
+  opacity: 0.55;
+}
+
+.bg-blur__left {
+  flex: 0 0 42%;
+  background: var(--bg-card-left);
+}
+
+.bg-blur__right {
+  flex: 1;
+  background: var(--bg-dark);
+  /* escurece um pouco mais o lado direito no reflexo */
+  filter: brightness(0.6);
+}
+
+/* ── Card principal ── */
+.login-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(860px, 95vw);
+  min-height: 420px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ══ LEFT PANEL ══ */
+.card-left {
+  position: relative;
+  flex: 0 0 42%;
+  background: var(--bg-card-left);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 28px 36px;
+  overflow: hidden;
+}
+
+/* Logo top-left */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo img,
+.logo svg {
+  height: 36px;
+  width: auto;
+}
+
+/* ── Área da foto com bolinha ── */
+.photo-area {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Bolinha accent atrás da foto — maior, deslocada p/ baixo-esquerda */
+.photo-circle-bg {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: var(--accent);
+  /* desloca: um pouco para esquerda e para baixo */
+  transform: translate(20px, 18px);
+}
+
+/* Foto circular sobre a bolinha */
+.photo-wrap {
+  position: relative;
+  z-index: 1;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ══ RIGHT PANEL ══ */
+.card-right {
+  flex: 1;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 48px 48px 44px;
+}
+
+/* Heading */
+.card-right h2 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 0.01em;
+  margin-bottom: 32px;
+}
+
+/* Labels */
+.field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+/* Field groups */
+.field-group {
+  margin-bottom: 18px;
+}
+
+/* Inputs */
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: var(--radius-input);
+  border: 1.5px solid transparent;
+  background: var(--input-bg);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: #4a2a14;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#loginForm input::placeholder {
+  color: #b8956d;
+  font-weight: 400;
+}
+
+#loginForm input:focus {
+  border-color: var(--accent);
+}
+
+/* Forgot password link */
+.forgot-link {
+  display: block;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  margin-top: 6px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: var(--text-light);
+}
+
+/* Submit button */
+#loginForm button[type="submit"] {
+  margin-top: 22px;
+  padding: 13px 36px;
+  border-radius: var(--radius-input);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#loginForm button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+/* Error message */
+#erro {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #f08080;
+  min-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 620px) {
+  .login-card {
+    flex-direction: column;
+  }
+
+  .card-left {
+    flex: 0 0 auto;
+    padding: 24px 24px 40px;
+    align-items: center;
+  }
+
+  .photo-area {
+    min-height: 220px;
+  }
+
+  .photo-circle-bg {
+    width: 190px;
+    height: 190px;
+  }
+
+  .photo-wrap {
+    width: 165px;
+    height: 165px;
+  }
+
+  .card-right {
+    padding: 36px 28px;
+  }
+
+  .card-right h2 {
+    font-size: 1.9rem;
+  }
+}
