@@ -1,19 +1,36 @@
 /* ===== COFFICE — cadastrar-funcionario.css ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg:           #E5CDB1;
   --dark:         #3E1D0E;
   --accent:       #A1663C;
   --accent-hover: #8a5230;
+  --accent-soft:  rgba(161, 102, 60, 0.10);
   --text:         #1a1008;
   --text-muted:   #6b4c35;
-  --border:       rgba(62, 29, 14, 0.18);
-  --radius:       10px;
-  --font:         'Inter', sans-serif;
+  --border:       rgba(62, 29, 14, 0.16);
+  --border-soft:  rgba(62, 29, 14, 0.10);
+  --surface:      #fdf8f3;
+
+  --radius-sm:    8px;
+  --radius:       12px;
+  --radius-lg:    18px;
+
+  --space-1: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+  --space-2: clamp(0.85rem, 0.7rem + 0.6vw, 1.25rem);
+  --space-3: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+
+  --shadow: 0 1px 2px rgba(62, 29, 14, 0.04), 0 8px 24px -12px rgba(62, 29, 14, 0.18);
+  --focus-ring: 0 0 0 3px rgba(161, 102, 60, 0.28);
+
+  --font: 'Inter', system-ui, sans-serif;
 }
 
+/* Formulário, título e mensagem tratados como um único bloco de conteúdo,
+   centralizado dentro da área disponível (à direita do menu lateral,
+   que é posicionado pelo main.css/menu.css). */
 body {
   background: var(--bg);
   font-family: var(--font);
@@ -21,31 +38,43 @@ body {
   /* margin-left e padding vêm do main.css — não alterados */
 }
 
+h1,
+#formFuncionario,
+#mensagem{
+    width:100%;
+    max-width:none;
+    margin:0;
+    box-sizing:border-box;
+}
+
+
 h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--dark);
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  margin-block: 0 var(--space-3);
+  padding-inline: 2px;
 }
 
 /* ── Card do formulário ── */
-#formFuncionario {
-  background: #fff;
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  padding: 32px 36px 36px;
-  max-width: 780px;
+#formFuncionario{
+    width:100%;
+    background:#fff;
+    border:1px solid var(--border-soft);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:32px;
 }
 
 /* ── Grid de campos ── */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 24px;
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
 }
 
-/* Campos que ocupam linha inteira */
+/* Campos que ocupam a linha inteira */
 .full {
   grid-column: 1 / -1;
 }
@@ -55,29 +84,31 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 
 .field-group label {
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 /* ── Inputs e selects ── */
 #formFuncionario input,
 #formFuncionario select {
+  box-sizing: border-box;
   width: 100%;
-  padding: 11px 14px;
+  padding: 10px 13px;
   border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: #fdf8f3;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
   font-family: var(--font);
   font-size: 0.9rem;
   color: var(--text);
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
   appearance: none;
   -webkit-appearance: none;
 }
@@ -86,10 +117,18 @@ h1 {
   color: #b8956d;
 }
 
+#formFuncionario input:hover,
+#formFuncionario select:hover {
+  border-color: var(--accent);
+}
+
 #formFuncionario input:focus,
-#formFuncionario select:focus {
+#formFuncionario select:focus,
+#formFuncionario input:focus-visible,
+#formFuncionario select:focus-visible {
   border-color: var(--accent);
   background: #fff;
+  box-shadow: var(--focus-ring);
 }
 
 /* Seta customizada nos selects */
@@ -97,32 +136,45 @@ h1 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
-  background-color: #fdf8f3;
-  padding-right: 36px;
+  padding-right: 34px;
   cursor: pointer;
 }
 
-/* Input de data — label explicita o campo, então placeholder não é necessário */
+/* Input de data — label já explicita o campo */
 #formFuncionario input[type="date"] {
   color: var(--text);
 }
 
 #formFuncionario input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: pointer;
 }
 
-/* Divisor de seção */
+/* Divisor de seção — eyebrow minimalista em vez de linha cheia */
 .section-label {
   grid-column: 1 / -1;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--accent);
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--border);
-  margin-top: 8px;
+  color: var(--dark);
+  margin-top: var(--space-1);
+}
+
+.section-label::before {
+  content: "";
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.section-label:first-child {
+  margin-top: 0;
 }
 
 /* ── Rodapé do formulário ── */
@@ -131,14 +183,15 @@ h1 {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-soft);
 }
 
 #formFuncionario button[type="submit"] {
-  padding: 11px 32px;
-  border-radius: var(--radius);
+  box-sizing: border-box;
+  padding: 11px 30px;
+  border-radius: var(--radius-sm);
   border: none;
   background: var(--accent);
   color: #fff;
@@ -147,34 +200,74 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
 #formFuncionario button[type="submit"]:hover {
   background: var(--accent-hover);
 }
 
+#formFuncionario button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+#formFuncionario button[type="submit"]:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 /* ── Mensagem de feedback ── */
 #mensagem {
-  margin-top: 16px;
+  margin-top: var(--space-2);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--accent);
-  max-width: 780px;
   min-height: 20px;
 }
 
+#mensagem:empty {
+  margin-top: 0;
+  min-height: 0;
+}
+
+/* Classes utilitárias opcionais, caso o JS queira sinalizar sucesso/erro */
+#mensagem.sucesso { color: #2e7d32; }
+#mensagem.erro    { color: #c0392b; }
+
 /* ── Responsivo ── */
-@media (max-width: 600px) {
-  #formFuncionario {
-    padding: 24px 18px;
-  }
+@media (max-width:768px){
 
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
+    h1,
+    #formFuncionario,
+    #mensagem{
+        width:100%;
+    }
 
-  .full {
-    grid-column: 1;
+    #formFuncionario{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .form-footer{
+        justify-content:stretch;
+    }
+
+    #formFuncionario button[type="submit"]{
+        width:100%;
+    }
+
+}
+
+/* ── Preferência por movimento reduzido ── */
+@media (prefers-reduced-motion: reduce) {
+  #formFuncionario input,
+  #formFuncionario select,
+  #formFuncionario button[type="submit"] {
+    transition: none;
   }
 }
