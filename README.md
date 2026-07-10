@@ -5,8 +5,7 @@ yan
 
 
 Para iniciar o projeto:
-Precisa iniciar o mysql(xamp) e depois rodar esses comandos
-npm run db:create
+Precisa iniciar o mysql(xamp) e depois rodar esses comando
 npm run db:init
 npm run db:seed
 npm start
