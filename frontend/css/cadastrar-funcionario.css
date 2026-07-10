@@ -202,7 +202,28 @@ h1 {
   cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
+#btnCancelar{
+    padding:11px 30px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius-sm);
+    background:#fff;
+    color:var(--dark);
+    font-family:var(--font);
+    font-size:.9rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
 
+#btnCancelar:hover{
+    background:var(--surface);
+    border-color:var(--accent);
+}
+
+#btnCancelar:focus-visible{
+    outline:none;
+    box-shadow:var(--focus-ring);
+}
 #formFuncionario button[type="submit"]:hover {
   background: var(--accent-hover);
 }
