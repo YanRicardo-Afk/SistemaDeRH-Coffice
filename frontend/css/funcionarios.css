@@ -1,6 +1,6 @@
 /* ===== COFFICE — funcionarios.css ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg:           #E5CDB1;
@@ -9,11 +9,22 @@
   --accent-hover: #8a5230;
   --text:         #1a1008;
   --text-muted:   #6b4c35;
-  --border:       rgba(62, 29, 14, 0.15);
-  --card-bg:      rgba(255, 255, 255, 0.45);
-  --radius:       10px;
-  --radius-sm:    6px;
-  --font:         'Inter', sans-serif;
+  --border:       rgba(62, 29, 14, 0.16);
+  --border-soft:  rgba(62, 29, 14, 0.10);
+  --surface:      #fdf8f3;
+
+  --radius-sm:    8px;
+  --radius:       12px;
+  --radius-lg:    18px;
+
+  --space-1: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+  --space-2: clamp(0.85rem, 0.7rem + 0.6vw, 1.25rem);
+  --space-3: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+
+  --shadow: 0 1px 2px rgba(62, 29, 14, 0.04), 0 8px 24px -12px rgba(62, 29, 14, 0.18);
+  --focus-ring: 0 0 0 3px rgba(161, 102, 60, 0.28);
+
+  --font: 'Inter', system-ui, sans-serif;
 }
 
 /* ── Base ── */
@@ -24,13 +35,44 @@ body {
   /* margin-left e padding vêm do main.css — não alterados */
 }
 
+/* Título, barra de controles e lista tratados como um único bloco de
+   conteúdo, centralizado no espaço disponível (à direita do menu lateral). */
+h1,
+.toolbar,
+#listaFuncionarios{
+    width:100%;
+    max-width:none;
+}
+h1,
+.toolbar,
+#listaFuncionarios{
+    width:100%;
+    box-sizing:border-box;
+}
+
+.toolbar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+#pesquisaNome{
+    flex:1 1 420px;
+    min-width:260px;
+}
+
+#listaFuncionarios{
+    margin-top:18px;
+}
 /* ── Cabeçalho da página ── */
 h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--dark);
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  margin-block: 0 var(--space-3);
+  padding-inline: 2px;
 }
 
 /* ── Barra de controles ── */
@@ -39,36 +81,45 @@ h1 {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-2);
 }
 
 /* Campo de pesquisa */
 #pesquisaNome {
+  box-sizing: border-box;
   flex: 1 1 220px;
   min-width: 180px;
   padding: 10px 16px 10px 38px;
   border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b4c35' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
+  border-radius: var(--radius-sm);
+  background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b4c35' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
   font-family: var(--font);
   font-size: 0.88rem;
   color: var(--text);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 #pesquisaNome::placeholder {
-  color: var(--text-muted);
+  color: #b8956d;
 }
 
-#pesquisaNome:focus {
+#pesquisaNome:hover {
   border-color: var(--accent);
 }
 
-/* Botão pesquisar — discreto, só ícone implícito */
+#pesquisaNome:focus,
+#pesquisaNome:focus-visible {
+  border-color: var(--accent);
+  background-color: #fff;
+  box-shadow: var(--focus-ring);
+}
+
+/* Botão pesquisar — discreto */
 #btnPesquisar {
+  box-sizing: border-box;
   padding: 10px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
   background: #fff;
   font-family: var(--font);
@@ -76,21 +127,28 @@ h1 {
   font-weight: 500;
   color: var(--dark);
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
   white-space: nowrap;
 }
 
 #btnPesquisar:hover {
   border-color: var(--accent);
-  background: #fdf6ee;
+  background: var(--surface);
+}
+
+#btnPesquisar:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 /* Select filtro de cargo */
 #filtroCargo {
+  box-sizing: border-box;
   padding: 10px 36px 10px 14px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
-  background: #fff;
+  background-color: #fff;
   font-family: var(--font);
   font-size: 0.88rem;
   color: var(--dark);
@@ -102,18 +160,25 @@ h1 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
-  transition: border-color 0.2s;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-#filtroCargo:focus {
+#filtroCargo:hover {
   border-color: var(--accent);
+}
+
+#filtroCargo:focus,
+#filtroCargo:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 /* Botão cadastrar — destaque */
 #btnNovoFuncionario {
+  box-sizing: border-box;
   margin-left: auto;
   padding: 10px 22px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   border: none;
   background: var(--accent);
   color: #fff;
@@ -122,7 +187,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
   white-space: nowrap;
 }
 
@@ -130,26 +195,35 @@ h1 {
   background: var(--accent-hover);
 }
 
+#btnNovoFuncionario:active {
+  transform: translateY(1px);
+}
+
+#btnNovoFuncionario:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 /* ── Lista de funcionários ── */
 #listaFuncionarios {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: #fff;
+  box-shadow: var(--shadow);
 }
 
 /* Cards gerados pelo JS */
 .funcionario-card {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: var(--space-2);
   padding: 14px 20px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-soft);
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s ease;
 }
 
 .funcionario-card:last-child {
@@ -157,13 +231,19 @@ h1 {
 }
 
 .funcionario-card:hover {
-  background: #fdf6ee;
+  background: var(--surface);
+}
+
+.funcionario-card:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+  background: var(--surface);
 }
 
 /* Itens dentro do card (h3 e p gerados pelo JS) */
 .funcionario-card h3 {
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
   min-width: 200px;
   margin: 0;
@@ -184,30 +264,69 @@ h1 {
 #listaFuncionarios:empty::after {
   content: 'Nenhum funcionário encontrado.';
   display: block;
-  padding: 32px 20px;
+  padding: var(--space-3) 20px;
   text-align: center;
   font-size: 0.88rem;
   color: var(--text-muted);
 }
 
 /* ── Responsivo ── */
-@media (max-width: 600px) {
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
+@media (max-width: 768px) {
+
+  h1,
+  .toolbar,
+  #listaFuncionarios{
+      max-width:100%;
+      width:100%;
   }
 
-  #btnNovoFuncionario {
-    margin-left: 0;
+  .toolbar{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
   }
 
+  #pesquisaNome{
+      width:100%;
+      min-width:0;
+      flex:none;
+      padding:14px 16px 14px 42px;
+      font-size:15px;
+      border-radius:12px;
+  }
+
+  #btnPesquisar,
+  #filtroCargo,
+  #btnNovoFuncionario{
+      width:100%;
+      margin:0;
+      height:48px;
+      font-size:15px;
+      border-radius:12px;
+  }
+
+  .funcionario-card{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      padding:16px;
+  }
+
+  .funcionario-card h3{
+      width:100%;
+      min-width:0;
+  }
+
+}
+
+/* ── Preferência por movimento reduzido ── */
+@media (prefers-reduced-motion: reduce) {
+  #pesquisaNome,
+  #btnPesquisar,
+  #filtroCargo,
+  #btnNovoFuncionario,
   .funcionario-card {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .funcionario-card h3 {
-    min-width: unset;
-    width: 100%;
+    transition: none;
   }
 }

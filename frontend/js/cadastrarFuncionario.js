@@ -86,3 +86,6 @@ form.addEventListener('submit', async (e) => {
 }
 });
 
+document.getElementById("btnCancelar").addEventListener("click", () => {
+    window.location.href = "funcionarios.html";
+});
