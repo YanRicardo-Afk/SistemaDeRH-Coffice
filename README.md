@@ -23,3 +23,8 @@ login do primeiro acesso
 Email: rh@coffice.com
 Senha: 123456
 Perfil: rh
+
+Cores da identidade Visual 
+#E5CDB1 
+#A1663C
+#3E1D0E
