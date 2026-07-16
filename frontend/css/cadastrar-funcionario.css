@@ -56,7 +56,35 @@ h1 {
   margin-block: 0 var(--space-3);
   padding-inline: 2px;
 }
+.btn-voltar{
 
+    background:none;
+
+    border:none;
+
+    color:#A1663C;
+
+    cursor:pointer;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    padding:0;
+
+    margin-bottom:18px;
+
+    transition:.2s;
+
+}
+
+.btn-voltar:hover{
+
+    color:#3E1D0E;
+
+    transform:translateX(-4px);
+
+}
 /* ── Card do formulário ── */
 #formFuncionario{
     width:100%;

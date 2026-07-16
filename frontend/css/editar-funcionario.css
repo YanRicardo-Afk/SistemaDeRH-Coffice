@@ -1,203 +1,482 @@
 /* ===== COFFICE — editar-funcionario.css ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg:           #E5CDB1;
-  --dark:         #3E1D0E;
-  --accent:       #A1663C;
-  --accent-hover: #8a5230;
-  --danger:       #b03a2e;
-  --danger-hover: #922b21;
-  --text:         #1a1008;
-  --text-muted:   #6b4c35;
-  --border:       rgba(62, 29, 14, 0.18);
-  --radius:       10px;
-  --font:         'Inter', sans-serif;
+
+  --bg:#E5CDB1;
+  --dark:#3E1D0E;
+  --accent:#A1663C;
+  --accent-hover:#8a5230;
+  --accent-soft:rgba(161,102,60,.10);
+
+  --text:#1a1008;
+  --text-muted:#6b4c35;
+
+  --border:rgba(62,29,14,.16);
+  --border-soft:rgba(62,29,14,.10);
+
+  --surface:#fdf8f3;
+
+  --radius-sm:8px;
+  --radius:12px;
+  --radius-lg:18px;
+
+  --space-1:clamp(.5rem,.4rem + .4vw,.75rem);
+  --space-2:clamp(.85rem,.7rem + .6vw,1.25rem);
+  --space-3:clamp(1.5rem,1.2rem + 1vw,2.25rem);
+
+  --shadow:
+    0 1px 2px rgba(62,29,14,.04),
+    0 8px 24px -12px rgba(62,29,14,.18);
+
+  --focus-ring:
+    0 0 0 3px rgba(161,102,60,.28);
+
+  --font:'Inter',sans-serif;
+
 }
 
-body {
-  background: var(--bg);
-  font-family: var(--font);
-  color: var(--text);
+body{
+
+    background:var(--bg);
+
+    font-family:var(--font);
+
+    color:var(--text);
+
 }
 
-h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--dark);
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
+.btn-voltar{
+
+    background:none;
+
+    border:none;
+
+    color:#A1663C;
+
+    cursor:pointer;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    padding:0;
+
+    margin-bottom:18px;
+
+    transition:.2s;
+
 }
 
-/* ── Card do formulário ── */
-#formFuncionario {
-  background: #fff;
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  padding: 32px 36px 36px;
-  max-width: 780px;
+.btn-voltar:hover{
+
+    color:#3E1D0E;
+
+    transform:translateX(-4px);
+
 }
 
-/* ── Grid ── */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 24px;
+h1,
+#formFuncionario,
+#mensagem{
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    box-sizing:border-box;
+
 }
 
-.full {
-  grid-column: 1 / -1;
+h1{
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+    margin-bottom:8px;
+
 }
 
-/* ── Grupos label + input ── */
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.subtitulo{
+
+    color:var(--text-muted);
+
+    margin-bottom:32px;
+
+    font-size:.95rem;
+
 }
 
-.field-group label {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+#formFuncionario{
+
+    width:100%;
+
+    background:#fff;
+
+    border:1px solid var(--border-soft);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:32px;
+
 }
 
-/* ── Inputs e selects ── */
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:24px;
+
+}
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+.field-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    min-width:0;
+
+}
+
+.field-group label{
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+    color:var(--text-muted);
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+}
+
+.opcional{
+
+    font-size:.75rem;
+
+    font-weight:400;
+
+    text-transform:none;
+
+}
+
 #formFuncionario input,
-#formFuncionario select {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: #fdf8f3;
-  font-family: var(--font);
-  font-size: 0.9rem;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
+#formFuncionario select{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:10px 13px;
+
+    border:1.5px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    color:var(--text);
+
+    outline:none;
+
+    appearance:none;
+
+    transition:border-color .15s,
+               background .15s,
+               box-shadow .15s;
+
 }
 
-#formFuncionario input::placeholder {
-  color: #b8956d;
+#formFuncionario input::placeholder{
+
+    color:#b8956d;
+
+}
+
+#formFuncionario input:hover,
+#formFuncionario select:hover{
+
+    border-color:var(--accent);
+
 }
 
 #formFuncionario input:focus,
-#formFuncionario select:focus {
-  border-color: var(--accent);
-  background: #fff;
+#formFuncionario select:focus{
+
+    border-color:var(--accent);
+
+    background:#fff;
+
+    box-shadow:var(--focus-ring);
+
 }
 
-#formFuncionario select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-color: #fdf8f3;
-  padding-right: 36px;
-  cursor: pointer;
+#formFuncionario select{
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233E1D0E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    background-repeat:no-repeat;
+
+    background-position:right 12px center;
+
+    padding-right:34px;
+
+    cursor:pointer;
+
 }
 
-#formFuncionario input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0.5;
-  cursor: pointer;
+#formFuncionario input[type=date]::-webkit-calendar-picker-indicator{
+
+    opacity:.55;
+
+    cursor:pointer;
+
 }
 
-/* ── Divisores de seção ── */
-.section-label {
-  grid-column: 1 / -1;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--border);
-  margin-top: 8px;
+.section-label{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:.68rem;
+
+    font-weight:700;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+
+    color:var(--dark);
+
+    margin-top:var(--space-1);
+
 }
 
-/* ── Rodapé com ações ── */
-.form-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+.section-label:first-child{
+
+    margin-top:0;
+
 }
 
-/* Botão salvar */
-#formFuncionario button[type="submit"] {
-  padding: 11px 32px;
-  border-radius: var(--radius);
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background 0.2s;
+.section-label::before{
+
+    content:"";
+
+    width:14px;
+
+    height:2px;
+
+    background:var(--accent);
+
+    border-radius:2px;
+
+}
+.form-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:var(--space-3);
+
+    padding-top:var(--space-2);
+
+    border-top:1px solid var(--border-soft);
+
 }
 
-#formFuncionario button[type="submit"]:hover {
-  background: var(--accent-hover);
+#btnExcluir{
+
+    padding:11px 28px;
+
+    border:none;
+
+    border-radius:var(--radius-sm);
+
+    background:#C0392B;
+
+    color:#fff;
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
 }
 
-/* Botão excluir — destrutivo, discreto até o hover */
-#btnExcluir {
-  padding: 11px 24px;
-  border-radius: var(--radius);
-  border: 1.5px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+#btnExcluir:hover{
+
+    background:#A93226;
+
 }
 
-#btnExcluir:hover {
-  border-color: var(--danger);
-  color: var(--danger);
-  background: #fff5f5;
+#btnExcluir:focus-visible{
+
+    outline:none;
+
+    box-shadow:var(--focus-ring);
+
 }
 
-/* ── Mensagem de feedback ── */
-#mensagem {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--accent);
-  min-height: 20px;
+#formFuncionario button[type="submit"]{
+
+    padding:11px 30px;
+
+    border:none;
+
+    border-radius:var(--radius-sm);
+
+    background:var(--accent);
+
+    color:#fff;
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
 }
 
-/* ── Responsivo ── */
-@media (max-width: 600px) {
-  #formFuncionario {
-    padding: 24px 18px;
-  }
+#formFuncionario button[type="submit"]:hover{
 
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
+    background:var(--accent-hover);
 
-  .full {
-    grid-column: 1;
-  }
+}
 
-  .form-footer {
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
+#formFuncionario button[type="submit"]:active{
 
-  .form-footer button {
-    width: 100%;
-    text-align: center;
-  }
+    transform:translateY(1px);
+
+}
+
+#formFuncionario button[type="submit"]:focus-visible{
+
+    outline:none;
+
+    box-shadow:var(--focus-ring);
+
+}
+
+#mensagem{
+
+    margin-top:20px;
+
+    min-height:22px;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+    color:var(--accent);
+
+}
+
+#mensagem.sucesso{
+
+    color:#2E7D32;
+
+}
+
+#mensagem.erro{
+
+    color:#C0392B;
+
+}
+
+@media(max-width:768px){
+
+    h1,
+    #formFuncionario,
+    #mensagem{
+
+        width:100%;
+
+    }
+
+    #formFuncionario{
+
+        padding:20px;
+
+        border-radius:16px;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+    .form-footer{
+
+        flex-direction:column-reverse;
+
+        align-items:stretch;
+
+    }
+
+    .form-footer button{
+
+        width:100%;
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        transition:none !important;
+
+        animation:none !important;
+
+    }
+
 }

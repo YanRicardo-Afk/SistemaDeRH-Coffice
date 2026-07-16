@@ -1,114 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funcionário</title>
-  <link rel="stylesheet" href="../css/editar-funcionario.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/menu.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Funcionário</title>
+
+    <link rel="stylesheet" href="../css/editar-funcionario.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
+
 <body>
-  <div id="menu"></div>
-  <h1>Dados do Funcionário</h1>
 
-  <form id="formFuncionario">
-    <div class="form-grid">
+    <div id="menu"></div>
 
-      <!-- ── Dados Pessoais ── -->
-      <span class="section-label">Dados Pessoais</span>
+    <button class="btn-voltar" onclick="history.back()">
+        ← Voltar
+    </button>
 
-      <div class="field-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" placeholder="Ex: Pedro Carvalho" required>
-      </div>
+    <h1>Editar Funcionário</h1>
 
-      <div class="field-group">
-        <label for="matricula">Matrícula</label>
-        <input type="text" id="matricula" placeholder="Ex: 26308" required>
-      </div>
+    <p class="subtitulo">
+        Atualize as informações do colaborador.
+    </p>
 
-      <div class="field-group">
-        <label for="dataNascimento">Data de Nascimento</label>
-        <input type="date" id="dataNascimento" required>
-      </div>
+    <form id="formFuncionario">
 
-      <div class="field-group">
-        <label for="statusCivil">Estado Civil</label>
-        <select id="statusCivil" required>
-          <option value="">Selecione</option>
-          <option value="Solteiro">Solteiro</option>
-          <option value="Casado">Casado</option>
-          <option value="Divorciado">Divorciado</option>
-          <option value="Viúvo">Viúvo</option>
-        </select>
-      </div>
+        <div class="form-grid">
 
-      <!-- ── Contato ── -->
-      <span class="section-label">Contato</span>
+            <span class="section-label">
+                Dados Pessoais
+            </span>
 
-      <div class="field-group full">
-        <label for="endereco">Endereço</label>
-        <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade" required>
-      </div>
+            <div class="field-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" required>
+            </div>
 
-      <div class="field-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" placeholder="exemplo@empresa.com" required>
-      </div>
+            <div class="field-group">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" required>
+            </div>
 
-      <div class="field-group">
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" placeholder="(81) 9 0000-0000" required>
-      </div>
+            <div class="field-group">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" required>
+            </div>
 
-      <!-- ── Dados Profissionais ── -->
-      <span class="section-label">Dados Profissionais</span>
+            <div class="field-group">
+                <label for="statusCivil">Estado Civil</label>
 
-      <div class="field-group">
-        <label for="cargo">Cargo</label>
-        <input type="text" id="cargo" placeholder="Ex: Analista, Gerente…" required>
-      </div>
+                <select id="statusCivil" required>
+                    <option value="">Selecione</option>
+                    <option value="Solteiro">Solteiro</option>
+                    <option value="Casado">Casado</option>
+                    <option value="Divorciado">Divorciado</option>
+                    <option value="Viúvo">Viúvo</option>
+                </select>
+            </div>
 
-      <div class="field-group">
-        <label for="dataAdmissao">Data de Admissão</label>
-        <input type="date" id="dataAdmissao" required>
-      </div>
+            <span class="section-label">
+                Contato
+            </span>
 
-      <div class="field-group">
-        <label for="dataFerias">Data de Férias <span style="font-weight:400;text-transform:none;font-size:0.75rem;">(opcional)</span></label>
-        <input type="date" id="dataFerias">
-      </div>
+            <div class="field-group full">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" required>
+            </div>
 
-      <!-- ── Acesso ao Sistema ── -->
-      <span class="section-label">Acesso ao Sistema</span>
+            <div class="field-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+            </div>
 
-      <div class="field-group">
-        <label for="perfil">Perfil de Acesso</label>
-        <select id="perfil" required>
-          <option value="funcionario">Funcionário</option>
-          <option value="rh">RH</option>
-        </select>
-      </div>
+            <div class="field-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" required>
+            </div>
 
-      <div class="field-group">
-        <label for="senha">Nova Senha <span style="font-weight:400;text-transform:none;font-size:0.75rem;">(deixe em branco para manter)</span></label>
-        <input type="password" id="senha" placeholder="••••••••" required>
-      </div>
+            <span class="section-label">
+                Dados Profissionais
+            </span>
 
-    </div><!-- /form-grid -->
+            <div class="field-group">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" required>
+            </div>
 
-    <div class="form-footer">
-      <button type="button" id="btnExcluir">Excluir Funcionário</button>
-      <button type="submit">Salvar Alterações</button>
-    </div>
+            <div class="field-group">
+                <label for="dataAdmissao">Data de Admissão</label>
+                <input type="date" id="dataAdmissao" required>
+            </div>
 
-  </form>
+            <div class="field-group">
+                <label for="dataFerias">
+                    Data de Férias
+                    <span class="opcional">(opcional)</span>
+                </label>
 
-  <p id="mensagem"></p>
+                <input type="date" id="dataFerias">
+            </div>
 
-  <script src="../js/editarFuncionario.js"></script>
-  <script src="../js/carregarMenu.js"></script>
-  <script defer src="../js/auth.js"></script>
+            <span class="section-label">
+                Acesso ao Sistema
+            </span>
+
+            <div class="field-group">
+                <label for="perfil">Perfil de Acesso</label>
+
+                <select id="perfil">
+                    <option value="funcionario">Funcionário</option>
+                    <option value="rh">RH</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="senha">
+                    Nova Senha
+                    <span class="opcional">
+                        (deixe em branco para manter)
+                    </span>
+                </label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    placeholder="••••••••"
+                >
+            </div>
+
+        </div>
+
+        <div class="form-footer">
+
+            <button
+                type="button"
+                id="btnExcluir"
+            >
+                Excluir Funcionário
+            </button>
+
+            <button type="submit">
+                Salvar Alterações
+            </button>
+
+        </div>
+
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script src="../js/editarFuncionario.js"></script>
+    <script src="../js/carregarMenu.js"></script>
+    <script defer src="../js/auth.js"></script>
+
 </body>
 </html>

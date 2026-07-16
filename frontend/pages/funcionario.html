@@ -1,42 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionario</title>
+    <title>Funcionário</title>
+
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/navbarSuperior.css">
     <link rel="stylesheet" href="../css/funcionario.css">
+
+    <script defer src="../js/auth.js"></script>
+    <script defer src="../js/carregarMenu.js"></script>
+    <script defer src="../js/carregarNavbarSuperior.js"></script>
+    <script defer src="../js/funcionario.js"></script>
 </head>
+
 <body>
 
     <div id="menu"></div>
-    <h1>Dados do Funcionário</h1>
 
-    <div class="card-funcionario">
-        <p><strong>Matrícula:</strong> <span id="matricula"></span></p>
-        <p><strong>Nome:</strong> <span id="nome"></span></p>
-        <p><strong>Status Civil:</strong> <span id="statusCivil"></span></p>
-        <p><strong>Data Nascimento:</strong> <span id="dataNascimento"></span></p>
-        <p><strong>Endereço:</strong> <span id="endereco"></span></p>
-        <p><strong>Email:</strong> <span id="email"></span></p>
-        <p><strong>Telefone:</strong> <span id="telefone"></span></p>
-        <p><strong>Cargo:</strong> <span id="cargo"></span></p>
-        <p><strong>Data Admissão:</strong> <span id="dataAdmissao"></span></p>
-        <p><strong>Data Férias:</strong> <span id="dataFerias"></span></p>
-        <p><strong>Perfil:</strong> <span id="perfil"></span></p>
+    <div id="navbarSuperior"></div>
+
+    <main class="layout-principal">
+
+        <button class="btn-voltar" onclick="history.back()">
+            ← Voltar
+        </button>
+
+        <h1>Funcionário</h1>
+
+        <p class="subtitulo">
+            Visualize as informações cadastrais do colaborador.
+        </p>
+
+        <div class="cabecalho-funcionario">
+
+    <div class="avatar-funcionario">
+
+        <img
+            src="../assents/icons/account_circle.svg"
+            alt="Funcionário"
+        >
+
     </div>
 
-    <div class="btn-group">
-        <button id="btnEditar">Editar</button>
-        <button id="btnHolerites">Ver Holerites</button>
-        <button id="btnPontos">Ver Pontos</button>
+    <div class="info-funcionario">
+
+        <h2 id="nomeCabecalho">
+            Carregando...
+        </h2>
+
+        <p id="cargoCabecalho">
+            Cargo
+        </p>
+
     </div>
 
-        <script src="../js/funcionario.js"></script>
-        <script src="../js/carregarMenu.js"></script>
-        <script defer src="../js/auth.js"></script>
+</div>
 
+        <div class="card-funcionario">
+
+    <div class="secao-card">
+
+        <h3>Dados Pessoais</h3>
+
+        <div class="grid-dados">
+
+            <p>
+                <strong>Matrícula</strong>
+                <span id="matricula"></span>
+            </p>
+
+            <p>
+                <strong>Nome</strong>
+                <span id="nome"></span>
+            </p>
+
+            <p>
+                <strong>Status Civil</strong>
+                <span id="statusCivil"></span>
+            </p>
+
+            <p>
+                <strong>Data de Nascimento</strong>
+                <span id="dataNascimento"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="secao-card">
+
+        <h3>Contato</h3>
+
+        <div class="grid-dados">
+
+            <p>
+                <strong>Email</strong>
+                <span id="email"></span>
+            </p>
+
+            <p>
+                <strong>Telefone</strong>
+                <span id="telefone"></span>
+            </p>
+
+            <p class="linha-inteira">
+                <strong>Endereço</strong>
+                <span id="endereco"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="secao-card">
+
+        <h3>Dados Profissionais</h3>
+
+        <div class="grid-dados">
+
+            <p>
+                <strong>Cargo</strong>
+                <span id="cargo"></span>
+            </p>
+
+            <p>
+                <strong>Perfil</strong>
+                <span id="perfil"></span>
+            </p>
+
+            <p>
+                <strong>Data de Admissão</strong>
+                <span id="dataAdmissao"></span>
+            </p>
+
+            <p>
+                <strong>Data de Férias</strong>
+                <span id="dataFerias"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+            <div class="btn-group">
+
+                <button id="btnHolerites">
+                    Ver Holerites
+                </button>
+
+                <button id="btnPontos">
+                    Ver Pontos
+                </button>
+
+                <button id="btnEditar">
+                    Editar
+                </button>
+
+            </div>
+
+    </main>
 
 </body>
 </html>

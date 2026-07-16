@@ -1,87 +1,337 @@
-/* funcionario.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #E5CDB1;
-    padding: 28px 32px;
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#E5CDB1;
+
 }
 
-h1 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #3E1D0E;
-    margin-bottom: 24px;
-    border-bottom: 2px solid #A1663C;
-    padding-bottom: 10px;
+h1{
+
+    margin:0;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#3E1D0E;
+
 }
 
-.card-funcionario {
-    background: rgba(255, 255, 255, 0.35);
-    border: 0.5px solid rgba(62, 29, 14, 0.2);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px 32px;
+.subtitulo{
+
+    margin-top:8px;
+
+    margin-bottom:30px;
+
+    color:#7A6659;
+
+    font-size:15px;
+
 }
 
-.card-funcionario p {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.btn-voltar{
+
+    background:none;
+
+    border:none;
+
+    color:#A1663C;
+
+    cursor:pointer;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    padding:0;
+
+    margin-bottom:18px;
+
+    transition:.2s;
+
 }
 
-.card-funcionario strong {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #A1663C;
+.btn-voltar:hover{
+
+    color:#3E1D0E;
+
+    transform:translateX(-4px);
+
 }
 
-.card-funcionario span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #3E1D0E;
+.cabecalho-funcionario{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:rgba(255,255,255,.35);
+
+    border:1px solid rgba(62,29,14,.12);
+
+    border-radius:14px;
+
+    padding:22px 26px;
+
+    margin-bottom:32px;
+
 }
 
-/* Endereço ocupa a linha inteira */
-.card-funcionario p:has(#endereco) {
-    grid-column: 1 / -1;
+.avatar-funcionario{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    background:#F8F4F0;
+
+    border:2px solid #A1663C;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
 }
 
-.btn-group {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+.avatar-funcionario img{
+
+    width:40px;
+
+    height:40px;
+
 }
 
-button {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 22px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    transition: opacity 0.15s;
+.info-funcionario{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
 }
 
-#btnEditar {
-    background: #A1663C;
-    color: #fff;
+#nomeCabecalho{
+
+    margin:0;
+
+    color:#3E1D0E;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+#cargoCabecalho{
+
+    margin-top:6px;
+
+    color:#A1663C;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.card-funcionario{
+
+    background:rgba(255,255,255,.45);
+
+    border-radius:14px;
+
+    border:1px solid rgba(62,29,14,.15);
+
+    padding:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px 36px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+    margin-bottom:30px;
+
+}
+
+.card-funcionario p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    margin:0;
+
+}
+
+.card-funcionario p:has(#endereco){
+
+    grid-column:1/-1;
+
+}
+
+.card-funcionario strong{
+
+    font-size:11px;
+
+    color:#A1663C;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+.card-funcionario span{
+
+    color:#3E1D0E;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.btn-group{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+    margin-top:32px;
+
+}
+
+.btn-group button{
+
+    min-width:160px;
+
+    height:44px;
+
+    padding:0 20px;
+
+    border-radius:10px;
+
+    font-family:'Inter',sans-serif;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#btnEditar{
+
+    background:#A1663C;
+
+    color:white;
+
+    border:none;
+
+}
+
+#btnEditar:hover{
+
+    background:#8E5B36;
+
 }
 
 #btnHolerites,
-#btnPontos {
-    background: transparent;
-    color: #3E1D0E;
-    border: 1.5px solid #A1663C;
+#btnPontos{
+
+    background:transparent;
+
+    color:#3E1D0E;
+
+    border:2px solid #A1663C;
+
 }
 
-button:hover {
-    opacity: 0.85;
+#btnHolerites:hover,
+#btnPontos:hover{
+
+    background:#A1663C;
+
+    color:white;
+
+}
+
+.secao-card{
+
+    margin-bottom:32px;
+
+}
+
+.secao-card:last-child{
+
+    margin-bottom:0;
+
+}
+
+.secao-card h3{
+
+    color:#3E1D0E;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    padding-bottom:8px;
+
+    border-bottom:2px solid rgba(161,102,60,.25);
+
+}
+
+.grid-dados{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px 36px;
+
+}
+
+.grid-dados p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    margin:0;
+
+}
+
+.linha-inteira{
+
+    grid-column:1/-1;
+
 }
