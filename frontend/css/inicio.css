@@ -10,7 +10,7 @@ body {
     background-position: right center;
     position: relative;
     padding: 24px 28px;
-    margin-top:72px;
+   
 }
 
 /* Header */
@@ -20,7 +20,37 @@ header {
     justify-content: space-between;
     margin-bottom: 28px;
 }
+.cabecalho-inicio{
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:32px;
+
+}
+
+.subtitulo{
+
+    margin-top:8px;
+
+    color:#7A6659;
+
+    font-size:16px;
+
+}
+
+.relogio{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#ffffff;
+
+}
 header h1 {
     font-size: 20px;
     font-weight: 600;

@@ -56,3 +56,26 @@ if (!token) {
     });
 
 }
+
+function atualizarRelogio() {
+
+    const elemento = document.getElementById("horaAtual");
+
+    if (!elemento) return;
+
+    const agora = new Date();
+
+    elemento.textContent =
+        agora.toLocaleTimeString(
+            "pt-BR",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
+
+}
+
+atualizarRelogio();
+
+setInterval(atualizarRelogio, 1000);

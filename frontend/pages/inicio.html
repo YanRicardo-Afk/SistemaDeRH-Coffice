@@ -6,49 +6,78 @@
     <title>Início - Coffice</title>
 
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navbarSuperior.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/navbarSuperior.css">
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="stylesheet" href="../css/pontos-funcionario.css">
+
     <script defer src="../js/auth.js"></script>
-    <script defer src="../js/carregarNavbarSuperior.js"></script>
-    <script defer src="../js/carregarNavbar.js"></script>
-    <script defer src="../js/inicio.js"></script>
     <script defer src="../js/carregarMenu.js"></script>
+    <script defer src="../js/carregarNavbarSuperior.js"></script>
+    <script defer src="../js/inicio.js"></script>
+
 </head>
 
 <body>
 
     <div id="menu"></div>
+
     <div id="navbarSuperior"></div>
 
+    <main class="layout-principal">
 
-    <main>
+        <section class="cabecalho-inicio">
 
-        <h2 id="saudacao">Olá!</h2>
+            <div>
+
+                <h2 id="saudacao">Olá!</h2>
+
+                <p class="subtitulo">
+                    Bem-vindo ao sistema Coffice.
+                </p>
+
+            </div>
+
+            <div class="relogio">
+
+                <span id="horaAtual">--:--</span>
+
+            </div>
+
+        </section>
 
         <div class="acoes-ponto">
-            <button id="btnEntrada" aria-label="Bater entrada">
+
+            <button id="btnEntrada">
                 Bater Entrada
             </button>
 
-            <button id="btnSaida" aria-label="Bater saída">
+            <button id="btnSaida">
                 Bater Saída
             </button>
+
         </div>
 
         <section class="avisos">
+
             <h2>Avisos</h2>
 
             <div id="listaAvisos">
-                <img src="../assents/aviso2.jpeg"
-                     alt="Aviso 1"
-                     class="aviso-imagem">
 
-                <img src="../assents/aviso.jpeg"
-                     alt="Aviso 2"
-                     class="aviso-imagem">
+                <img
+                    src="../assents/aviso2.jpeg"
+                    alt="Aviso 1"
+                    class="aviso-imagem"
+                >
+
+                <img
+                    src="../assents/aviso.jpeg"
+                    alt="Aviso 2"
+                    class="aviso-imagem"
+                >
+
             </div>
+
         </section>
 
     </main>
