@@ -94,21 +94,107 @@ header h1 {
     transition: opacity 0.15s;
 }
 
-#btnEntrada {
-    background: #A1663C;
-    color: #fff;
+#btnRegistrarPonto{
+
+    background:#A1663C;
+
+    color:#FFF;
+    width:100%;
+    max-width:500px;
+    min-width:240px;
+
 }
 
-#btnSaida {
-    background: transparent;
-    color: #ffffff;
-    border: 1.5px solid #A1663C;
+#btnRegistrarPonto:hover{
+
+    background:#8C5732;
+
 }
 
 .acoes-ponto button:hover {
     opacity: 0.85;
 }
+/* Registro de Hoje */
 
+.registro-hoje{
+
+    width:100%;
+    max-width:500px;
+
+    background:rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(229,205,177,.35);
+
+    border-radius:14px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+}
+
+.registro-hoje h2{
+
+    color:#FFFFFF;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+.data-hoje{
+
+    color:#E5CDB1;
+
+    font-size:14px;
+
+    margin-top:-10px;
+
+    margin-bottom:18px;
+
+}
+
+.registro-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.registro-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.registro-item span{
+
+    color:#E5CDB1;
+
+    font-size:15px;
+
+}
+
+.registro-item strong{
+
+    color:#FFFFFF;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
 /* Avisos */
 .avisos h2 {
     font-size: 13px;

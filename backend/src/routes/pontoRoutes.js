@@ -17,6 +17,13 @@ router.get(
     roleMiddleware(['rh']),
     pontoController.listarPorFuncionario
 );
+
+router.get(
+    '/hoje',
+    authMiddleware,
+    pontoController.buscarPontoHoje
+);
+
 router.post(
     '/entrada',
     authMiddleware,

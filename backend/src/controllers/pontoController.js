@@ -24,6 +24,46 @@ class PontoController {
         }
 
     }
+    async buscarPontoHoje(req, res) {
+
+    try {
+
+        const funcionarioId = req.user.id;
+
+        const agora = new Date();
+
+        const data = agora.toISOString().split("T")[0];
+
+        const ponto =
+            await pontoModel.buscarPontoHoje(
+                funcionarioId,
+                data
+            );
+
+        if (!ponto) {
+
+            return res.json({
+                entrada: null,
+                saida: null
+            });
+
+        }
+
+        res.json(ponto);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            erro: "Erro ao buscar ponto de hoje"
+        });
+
+    }
+
+}
     async registrarEntrada(req, res) {
 
     try {

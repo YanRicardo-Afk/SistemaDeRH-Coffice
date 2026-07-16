@@ -51,6 +51,25 @@ class PontoModel {
 
     return rows[0];
 }
+async buscarPontoHoje(funcionarioId, data) {
+
+    const [rows] = await pool.execute(`
+        SELECT
+            entrada,
+            saida
+        FROM pontos
+        WHERE funcionario_id = ?
+        AND data = ?
+        LIMIT 1
+    `, [
+        funcionarioId,
+        data
+    ]);
+
+    return rows[0];
+
+}
+
     async registrarSaida(id, saida, saldo) {
 
     await pool.execute(`
