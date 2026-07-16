@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funcionários</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
 
-  <link rel="stylesheet" href="../css/funcionarios.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/navbarSuperior.css">
+    <link rel="stylesheet" href="../css/funcionarios.css">
+
+    <script defer src="../js/auth.js"></script>
+    <script defer src="../js/carregarMenu.js"></script>
+    <script defer src="../js/carregarNavbarSuperior.js"></script>
+    <script defer src="../js/funcionarios.js"></script>
 </head>
+
 <body>
-  <div id="menu"></div>
 
-  <h1>Funcionários</h1>
+    <div id="menu"></div>
 
-  <!-- Barra de controles -->
-  <div class="toolbar">
-    <input
-      type="text"
-      id="pesquisaNome"
-      placeholder="Pesquisar funcionário"
-    >
+    <div id="navbarSuperior"></div>
 
-    <button id="btnPesquisar">Pesquisar</button>
+    <main class="layout-principal">
 
-    <select id="filtroCargo">
-      <option value="">Cargo ▾</option>
-      <option value="RH">RH</option>
-      <option value="Analista">Analista</option>
-      <option value="Gerente">Gerente</option>
-      <option value="Desenvolvedor">Desenvolvedor</option>
-      <option value="Jovem Aprendiz">Jovem Aprendiz</option>
-    </select>
+        <h1>Funcionários</h1>
 
-    <button id="btnNovoFuncionario">+ Cadastrar Novo</button>
-  </div>
+        <!-- Barra de controles -->
+        <div class="toolbar">
 
-  <!-- Lista populada pelo JS -->
-  <div id="listaFuncionarios"></div>
+            <input
+                type="text"
+                id="pesquisaNome"
+                placeholder="Pesquisar funcionário"
+            >
 
-  <script src="../js/funcionarios.js"></script>
-  <script src="../js/carregarMenu.js"></script>
-  <script defer src="../js/auth.js"></script>
+            <button id="btnPesquisar">
+                Pesquisar
+            </button>
+
+            <select id="filtroCargo">
+
+                <option value="">Cargo ▾</option>
+
+                <option value="RH">RH</option>
+
+                <option value="Analista">Analista</option>
+
+                <option value="Gerente">Gerente</option>
+
+                <option value="Desenvolvedor">
+                    Desenvolvedor
+                </option>
+
+                <option value="Jovem Aprendiz">
+                    Jovem Aprendiz
+                </option>
+
+            </select>
+
+            <button id="btnNovoFuncionario">
+                + Cadastrar Novo
+            </button>
+
+        </div>
+
+        <!-- Lista populada pelo JS -->
+        <div id="listaFuncionarios"></div>
+
+    </main>
+
 </body>
 </html>

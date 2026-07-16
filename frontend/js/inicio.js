@@ -1,15 +1,14 @@
 const token = localStorage.getItem('token');
 
 if (!token) {
+
     window.location.href = '/pages/login.html';
+
 } else {
 
     const usuario = JSON.parse(
         localStorage.getItem('usuario')
     );
-
-    document.getElementById('usuario-info').innerText =
-        `${usuario.nome} (${usuario.perfil})`;
 
     document.getElementById('saudacao').innerText =
         `Olá, ${usuario.nome}`;

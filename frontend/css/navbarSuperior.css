@@ -5,9 +5,9 @@
     top:0;
 
     left:70px;
-
+    
     right:0;
-
+    width: calc(100% - 70px);
     height:72px;
 
     background:#E5CDB1;

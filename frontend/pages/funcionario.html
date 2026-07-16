@@ -10,32 +10,33 @@
 </head>
 <body>
 
+    <div id="menu"></div>
+    <h1>Dados do Funcionário</h1>
 
-<div id="menu"></div>
-<h1>Dados do Funcionário</h1>
+    <div class="card-funcionario">
+        <p><strong>Matrícula:</strong> <span id="matricula"></span></p>
+        <p><strong>Nome:</strong> <span id="nome"></span></p>
+        <p><strong>Status Civil:</strong> <span id="statusCivil"></span></p>
+        <p><strong>Data Nascimento:</strong> <span id="dataNascimento"></span></p>
+        <p><strong>Endereço:</strong> <span id="endereco"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Telefone:</strong> <span id="telefone"></span></p>
+        <p><strong>Cargo:</strong> <span id="cargo"></span></p>
+        <p><strong>Data Admissão:</strong> <span id="dataAdmissao"></span></p>
+        <p><strong>Data Férias:</strong> <span id="dataFerias"></span></p>
+        <p><strong>Perfil:</strong> <span id="perfil"></span></p>
+    </div>
 
-<div class="card-funcionario">
-    <p><strong>Matrícula:</strong> <span id="matricula"></span></p>
-    <p><strong>Nome:</strong> <span id="nome"></span></p>
-    <p><strong>Status Civil:</strong> <span id="statusCivil"></span></p>
-    <p><strong>Data Nascimento:</strong> <span id="dataNascimento"></span></p>
-    <p><strong>Endereço:</strong> <span id="endereco"></span></p>
-    <p><strong>Email:</strong> <span id="email"></span></p>
-    <p><strong>Telefone:</strong> <span id="telefone"></span></p>
-    <p><strong>Cargo:</strong> <span id="cargo"></span></p>
-    <p><strong>Data Admissão:</strong> <span id="dataAdmissao"></span></p>
-    <p><strong>Data Férias:</strong> <span id="dataFerias"></span></p>
-    <p><strong>Perfil:</strong> <span id="perfil"></span></p>
-</div>
+    <div class="btn-group">
+        <button id="btnEditar">Editar</button>
+        <button id="btnHolerites">Ver Holerites</button>
+        <button id="btnPontos">Ver Pontos</button>
+    </div>
 
-<div class="btn-group">
-    <button id="btnEditar">Editar</button>
-    <button id="btnHolerites">Ver Holerites</button>
-    <button id="btnPontos">Ver Pontos</button>
-</div>
+        <script src="../js/funcionario.js"></script>
+        <script src="../js/carregarMenu.js"></script>
+        <script defer src="../js/auth.js"></script>
 
-    <script src="../js/funcionario.js"></script>
-    <script src="../js/carregarMenu.js"></script>
-    <script defer src="../js/auth.js"></script>
+
 </body>
 </html>
