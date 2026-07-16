@@ -1,29 +1,48 @@
+<header class="navbar-superior">
 
-    <nav class="navbar-superior">
+    <div class="navbar-titulo">
+        <h1 id="tituloPagina">Início</h1>
+    </div>
 
-    <div class="usuario-info">
+    <div class="navbar-acoes">
 
-        <span id="nomeUsuario" class="nome-usuario">
-            Usuário
-        </span>
+        <button class="btn-notificacao">
+            <img src="../assents/icons/notifications.svg" alt="Notificações">
+        </button>
 
-        <span id="emailUsuario" class="email-usuario">
-            email@email.com
-        </span>
+        <div class="usuario-menu" id="usuarioMenu">
+
+            <div class="usuario-info">
+
+                <span id="nomeUsuario" class="nome-usuario">
+                    Nome do Usuário
+                </span>
+
+                <span id="emailUsuario" class="email-usuario">
+                    usuario@email.com
+                </span>
+
+            </div>
+
+            <div class="avatar-usuario">
+                <img src="../assents/icons/account_circle.svg" alt="Perfil">
+            </div>
+
+            <button class="btn-dropdown" id="btnDropdown">
+                <img src="../assents/icons/keyboard_arrow_down.svg" alt="Menu">
+            </button>
+
+            <div class="dropdown-usuario" id="dropdownUsuario">
+
+                <button id="btnSairNavbar">
+                    <img src="../assets/icons/logout.svg" alt="">
+                    <span>Sair</span>
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <div class="usuario-avatar">
-
-        <span class="icone-perfil">
-            👤
-        </span>
-
-        <span class="seta">
-            ▼
-        </span>
-
-    </div>
-
-</nav>
-    
+</header>

@@ -1,5 +1,4 @@
-const perfil =
-    localStorage.getItem('perfil');
+const perfil = localStorage.getItem('perfil');
 
 if (perfil !== 'rh') {
 
@@ -11,17 +10,9 @@ if (perfil !== 'rh') {
 
 document
     .getElementById('btnSair')
-    .addEventListener('click', () => {
+    .addEventListener('click', logout);
 
-        localStorage.clear();
-
-        window.location.href =
-            'login.html';
-
-    });
-
-    const paginaAtual =
-    window.location.pathname;
+const paginaAtual = window.location.pathname;
 
 document
     .querySelectorAll('.menu a')
