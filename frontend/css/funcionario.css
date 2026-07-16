@@ -335,3 +335,74 @@ h1{
     grid-column:1/-1;
 
 }
+
+/* ==========================================
+   CSS ADICIONADO PARA RESPONSIVIDADE (CELULAR)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Define margens nas laterais da página para não colar na borda do celular */
+    .layout-principal {
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+
+    /* Ajusta tamanho dos títulos principais */
+    h1 {
+        font-size: 26px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    /* Cabeçalho do Funcionário menor e mais compacto */
+    .cabecalho-funcionario {
+        padding: 16px;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .avatar-funcionario {
+        width: 60px;
+        height: 60px;
+    }
+
+    .avatar-funcionario img {
+        width: 32px;
+        height: 32px;
+    }
+
+    #nomeCabecalho {
+        font-size: 20px;
+    }
+
+    #cargoCabecalho {
+        font-size: 14px;
+    }
+
+    /* O card principal passa a ter apenas 1 coluna no celular */
+    .card-funcionario {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    /* O grid interno de cada seção também passa a ser de 1 coluna */
+    .grid-dados {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Botões se adaptam para ocupar a largura total no celular e facilitar o clique */
+    .btn-group {
+        flex-direction: column-reverse; /* Coloca o botão principal "Editar" no topo */
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .btn-group button {
+        width: 100%;
+        min-width: unset; /* Desfaz a largura mínima fixa para que ocupem 100% */
+    }
+}
