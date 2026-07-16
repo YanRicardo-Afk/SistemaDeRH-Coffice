@@ -229,5 +229,48 @@
     width:20px;
 
 }
+@media (max-width:768px){
 
+    .navbar-superior{
+
+        left:0;
+
+        width:100%;
+
+        padding-left:72px;
+        height:64px;
+        
+
+    }
+
+
+    .usuario-info{
+
+    display:none;
+
+}
+.avatar-usuario{
+
+    width:40px;
+
+    height:40px;
+
+}
+
+.avatar-usuario img{
+
+    width:24px;
+
+}
+.navbar-acoes{
+
+    gap:10px;
+
+}
+.navbar-titulo h1{
+
+    font-size:20px;
+
+}
+}
 

@@ -8,12 +8,30 @@ body {
 
 .layout-principal{
 
-   
-
     margin-top: 72px;
 
-   
-
     box-sizing: border-box;
+
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media (max-width: 768px) {
+
+    body {
+
+        margin-left: 0;
+
+        padding: 16px;
+
+    }
+
+    .layout-principal{
+
+        margin-top: 72px;
+
+    }
 
 }
