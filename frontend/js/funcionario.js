@@ -6,6 +6,16 @@ const id = params.get("id");
 const token =
     localStorage.getItem("token");
 
+function formatarData(data) {
+
+    if (!data) return "Não definida";
+
+    return new Date(data).toLocaleDateString("pt-BR", {
+        timeZone: "UTC"
+    });
+
+}
+
 async function carregarFuncionario() {
 
     try {
@@ -42,7 +52,7 @@ async function carregarFuncionario() {
             funcionario.status_civil;
 
         document.getElementById("dataNascimento").textContent =
-            funcionario.data_nascimento;
+    formatarData(funcionario.data_nascimento);
 
         document.getElementById("endereco").textContent =
             funcionario.endereco;
@@ -57,10 +67,10 @@ async function carregarFuncionario() {
             funcionario.cargo;
 
         document.getElementById("dataAdmissao").textContent =
-            funcionario.data_admissao;
+    formatarData(funcionario.data_admissao);
 
-        document.getElementById("dataFerias").textContent =
-            funcionario.data_ferias || "Não definida";
+       document.getElementById("dataFerias").textContent =
+    formatarData(funcionario.data_ferias);
 
         document.getElementById("perfil").textContent =
             funcionario.perfil;

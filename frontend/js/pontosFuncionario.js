@@ -31,7 +31,7 @@ async function carregarPontos() {
 
         linhas += `
             <tr>
-                <td>${ponto.data}</td>
+                <td>${new Date(ponto.data).toLocaleDateString("pt-BR")}</td>
                 <td>${ponto.entrada}</td>
                 <td>${ponto.saida || '-'}</td>
                 <td class="${saldoClass}">${saldo}</td>
