@@ -1,5 +1,7 @@
 const token = localStorage.getItem('token');
 
+let acaoRegistro = "";
+
 if (!token) {
 
     window.location.href = '/pages/login.html';
@@ -84,52 +86,158 @@ else {
     }
 
 }
+function abrirModal() {
 
-async function registrarPonto() {
+    const modal =
+        document.getElementById("modalPonto");
+
+    const tipo =
+        document.getElementById("tipoRegistro");
+
+    const data =
+        document.getElementById("modalData");
+
+    const hora =
+        document.getElementById("modalHora");
 
     const botao =
         document.getElementById("btnRegistrarPonto");
 
-    let url = "";
+    modal.style.display = "flex";
+    document.getElementById("mensagemModal").textContent = "";
+
+document.getElementById("btnConfirmarModal").disabled = false;
+
+document.getElementById("btnCancelarModal").disabled = false;
 
     if (botao.textContent === "Registrar Entrada") {
 
-        url = "http://localhost:3000/pontos/entrada";
+    acaoRegistro = "entrada";
 
-    }
+    tipo.textContent = "Entrada";
 
-    else if (botao.textContent === "Registrar Saída") {
+}
 
-        url = "http://localhost:3000/pontos/saida";
+else {
 
-    }
+    acaoRegistro = "saida";
 
-    else {
+    tipo.textContent = "Saída";
 
-        return;
+}
 
-    }
+    const agora = new Date();
 
-    const response = await fetch(
-        url,
-        {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
+    data.textContent =
+        agora.toLocaleDateString("pt-BR");
+
+    hora.textContent =
+        agora.toLocaleTimeString("pt-BR");
+
+}
+
+function fecharModal() {
+
+    document
+        .getElementById("modalPonto")
+        .style.display = "none";
+
+}
+
+document
+    .getElementById("btnCancelarModal")
+    .addEventListener(
+        "click",
+        fecharModal
     );
 
-    const resultado = await response.json();
 
-    alert(resultado.mensagem || resultado.erro);
+async function registrarPonto() {
 
-    carregarPontoHoje();
+    const mensagem =
+        document.getElementById("mensagemModal");
+
+    const btnConfirmar =
+        document.getElementById("btnConfirmarModal");
+
+    const btnCancelar =
+        document.getElementById("btnCancelarModal");
+
+    mensagem.textContent = "Registrando...";
+
+    btnConfirmar.disabled = true;
+    btnCancelar.disabled = true;
+
+    try {
+
+        const response = await fetch(
+
+            `http://localhost:3000/pontos/${acaoRegistro}`,
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    Authorization: `Bearer ${token}`
+
+                }
+
+            }
+
+        );
+
+        const resultado = await response.json();
+
+        if (!response.ok) {
+
+            mensagem.textContent =
+                resultado.erro;
+
+            btnConfirmar.disabled = false;
+            btnCancelar.disabled = false;
+
+            return;
+
+        }
+
+        mensagem.textContent =
+            "✔ Registro realizado com sucesso!";
+
+        carregarPontoHoje();
+
+        setTimeout(() => {
+
+            fecharModal();
+
+        }, 1500);
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+        mensagem.textContent =
+            "Erro ao registrar ponto.";
+
+        btnConfirmar.disabled = false;
+        btnCancelar.disabled = false;
+
+    }
 
 }
 
 document
     .getElementById("btnRegistrarPonto")
+    .addEventListener(
+        "click",
+        abrirModal
+    );
+
+document
+    .getElementById("btnConfirmarModal")
     .addEventListener(
         "click",
         registrarPonto
