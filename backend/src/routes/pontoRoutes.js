@@ -19,6 +19,12 @@ router.get(
 );
 
 router.get(
+    '/meus',
+    authMiddleware,
+    pontoController.listarMeusPontos
+);
+
+router.get(
     '/hoje',
     authMiddleware,
     pontoController.buscarPontoHoje

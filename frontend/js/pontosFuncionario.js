@@ -1,16 +1,33 @@
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
-const token = localStorage.getItem('token');
+const id = params.get("id");
+const token = localStorage.getItem("token");
 
 async function carregarPontos() {
-    const response = await fetch(
-        `http://localhost:3000/pontos/funcionario/${id}`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+
+    let url;
+
+    if (id) {
+
+        // RH consultando outro funcionário
+        url = `http://localhost:3000/pontos/funcionario/${id}`;
+
+    } else {
+
+        // Usuário consultando seus próprios pontos
+        url = "http://localhost:3000/pontos/meus";
+
+    }
+
+    const response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${token}`
         }
-    );
+    });
+
+    if (!response.ok) {
+        throw new Error("Erro ao buscar pontos.");
+    }
+
 
     const pontos = await response.json();
     const lista = document.getElementById('listaPontos');

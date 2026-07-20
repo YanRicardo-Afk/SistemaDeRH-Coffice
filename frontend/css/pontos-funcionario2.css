@@ -67,3 +67,33 @@ h1 {
     color: #854F0B;
     font-weight: 500;
 }
+
+.btn-voltar{
+
+    background:none;
+
+    border:none;
+
+    color:#A1663C;
+
+    cursor:pointer;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    padding:0;
+
+    margin-bottom:18px;
+
+    transition:.2s;
+
+}
+
+.btn-voltar:hover{
+
+    color:#3E1D0E;
+
+    transform:translateX(-4px);
+
+}

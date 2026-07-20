@@ -24,6 +24,26 @@ class PontoController {
         }
 
     }
+    async listarMeusPontos(req, res) {
+    try {
+
+        const funcionarioId = req.user.id;
+
+        const pontos = await pontoModel.listarPorFuncionario(funcionarioId);
+
+        res.status(200).json(pontos);
+
+    } catch (erro) {
+
+        console.error("Erro ao listar meus pontos:", erro);
+
+        res.status(500).json({
+            erro: "Erro ao buscar pontos."
+        });
+
+    }
+}
+
     async buscarPontoHoje(req, res) {
 
     try {
