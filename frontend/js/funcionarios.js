@@ -89,6 +89,6 @@ document
     });
 
     function abrirFuncionario(id){
-        window.location.href = 
-        `funcionario.html?id=${id}`;
+        window.location.href =
+    `funcionario.html?id=${id}&voltar=funcionarios`;
     }

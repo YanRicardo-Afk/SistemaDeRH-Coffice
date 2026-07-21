@@ -10,7 +10,7 @@
 </head>
 <body>
   <div id="menu"></div>
-  <button class="btn-voltar" onclick="history.back()">
+  <button id="btnVoltar" class="btn-voltar">
     ← Voltar
 </button>
   <h1>Cadastrar Funcionário</h1>
@@ -110,9 +110,9 @@
   </form>
 
   <p id="mensagem"></p>
-
-  <script src="../js/cadastrarFuncionario.js"></script>
-  <script src="../js/carregarMenu.js"></script>
+  <script defer src="../js/navegacao.js"></script>
+  <script defer src="../js/cadastrarFuncionario.js"></script>
+  <script defer src="../js/carregarMenu.js"></script>
   <script defer src="../js/auth.js"></script>
 </body>
 </html>

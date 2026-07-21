@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/menu.css">
     
     <link rel="stylesheet" href="../css/navbarSuperior.css">
+    
 </head>
 <body>
 <button id="btnMenuMobile">
@@ -18,18 +19,18 @@
     <div id="navbarSuperior"></div>
     <div id="menu"></div>
     <main class="layout-principal">
-    <button class="btn-voltar" onclick="history.back()">
-        ← Voltar
-    </button>
+    <button id="btnVoltar" class="btn-voltar">
+    ← Voltar
+</button>
 
 
     <h1>Histórico de Pontos</h1>
 
 <div id="listaPontos"></div>
 </main>
-
-<script src="../js/pontosFuncionario.js"></script>
-<script src="../js/carregarMenu.js"></script>
+<script defer src="../js/navegacao.js"></script>
+<script defer src="../js/pontosFuncionario.js"></script>
+<script defer src="../js/carregarMenu.js"></script>
 <script defer src="../js/auth.js"></script>
 <script defer src="../js/carregarNavbarSuperior.js"></script>
 </body>

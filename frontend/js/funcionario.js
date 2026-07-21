@@ -93,8 +93,7 @@ document
     .getElementById("btnEditar")
     .addEventListener("click", () => {
 
-        window.location.href =
-            `editar-funcionario.html?id=${id}`;
+        abrirEditar(id);
 
     });
 
@@ -102,8 +101,7 @@ document
     .getElementById("btnHolerites")
     .addEventListener("click", () => {
 
-        window.location.href =
-            `holerites-funcionario.html?id=${id}`;
+        abrirHolerites(id);
 
     });
 
@@ -111,7 +109,8 @@ document
     .getElementById("btnPontos")
     .addEventListener("click", () => {
 
-        window.location.href =
-            `pontos-funcionario.html?id=${id}`;
+        abrirPontos(id);
 
     });
+
+    configurarBotaoVoltar("funcionarios.html");

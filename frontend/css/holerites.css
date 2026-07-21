@@ -1,131 +1,224 @@
-/* holerites.css */
+/* holerites-funcionarios.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #E5CDB1;
-    padding: 28px 32px;
-}
 
-/* Topo: título + botão lado a lado */
+/* ==============================
+   TÍTULO
+============================== */
+
 h1 {
-    display: inline-block;
     font-size: 22px;
     font-weight: 600;
     color: #3E1D0E;
-    padding-bottom: 10px;
+
     border-bottom: 2px solid #A1663C;
-    margin-right: 20px;
-    vertical-align: middle;
+
+    padding-bottom: 10px;
+
     margin-bottom: 24px;
 }
 
-/* Link de cadastrar */
-a[href="cadastrar-holerite.html"] {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: #A1663C;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    vertical-align: middle;
-    transition: opacity 0.15s;
-    margin-bottom: 24px;
-}
 
-a[href="cadastrar-holerite.html"]:hover {
-    opacity: 0.85;
-}
+/* ==============================
+   CARD DE CADA HOLERITE
+============================== */
 
-a[href="cadastrar-holerite.html"] span:first-child::before {
-    content: '+';
-    font-size: 18px;
-    line-height: 1;
-}
-
-/* Tabela */
-#listaHolerites {
+.holerite-card {
     background: rgba(255, 255, 255, 0.35);
+
     border: 0.5px solid rgba(62, 29, 14, 0.2);
+
     border-radius: 12px;
-    overflow: hidden;
+
+    padding: 20px 24px;
+
+    margin-bottom: 16px;
 }
 
-#listaHolerites table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
+
+/* ==============================
+   NOME / DESCRIÇÃO DO HOLERITE
+============================== */
+
+.holerite-nome {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #3E1D0E;
+
+    margin-bottom: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
 }
 
-#listaHolerites thead tr {
-    background: rgba(62, 29, 14, 0.08);
+.holerite-nome::before {
+    content: '';
+
+    display: inline-block;
+
+    width: 4px;
+
+    height: 16px;
+
+    background: #A1663C;
+
+    border-radius: 2px;
 }
 
-#listaHolerites thead th {
-    text-align: left;
-    padding: 12px 16px;
-    font-size: 11px;
+
+/* ==============================
+   GRID DOS CAMPOS
+============================== */
+
+.holerite-campos {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px 20px;
+
+    margin-bottom: 16px;
+}
+
+
+.holerite-campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.holerite-campo-label {
+    font-size: 10px;
+
     font-weight: 500;
+
     text-transform: uppercase;
+
     letter-spacing: 0.06em;
+
     color: #A1663C;
 }
 
-#listaHolerites tbody tr {
-    border-top: 0.5px solid rgba(62, 29, 14, 0.12);
-    transition: background 0.12s;
-}
 
-#listaHolerites tbody tr:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
+.holerite-campo-valor {
+    font-size: 13px;
 
-#listaHolerites tbody td {
-    padding: 12px 16px;
-    color: #3E1D0E;
-    font-weight: 400;
-}
-
-/* Badges de status — aplique via JS: class="badge-pago" ou "badge-pendente" */
-.badge-pago {
-    display: inline-block;
-    font-size: 11px;
     font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: rgba(99, 153, 34, 0.18);
+
+    color: #3E1D0E;
+}
+
+
+/* ==============================
+   DIVISOR
+============================== */
+
+.holerite-divider {
+    border: none;
+
+    border-top: 0.5px solid rgba(62, 29, 14, 0.15);
+
+    margin: 14px 0;
+}
+
+
+/* ==============================
+   TOTAIS
+============================== */
+
+.holerite-totais {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+.holerite-total-item {
+    background: rgba(62, 29, 14, 0.06);
+
+    border-radius: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.holerite-total-label {
+    font-size: 10px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+
+    color: #A1663C;
+}
+
+
+.holerite-total-valor {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #3E1D0E;
+}
+
+
+/* ==============================
+   TOTAL LÍQUIDO
+============================== */
+
+.holerite-total-liquido .holerite-total-valor {
     color: #3B6D11;
 }
 
-.badge-pendente {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: rgba(186, 117, 23, 0.15);
-    color: #854F0B;
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 768px) {
+
+    .holerite-campos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .holerite-totais {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
-/* Botão Ver dentro da tabela */
-#listaHolerites button {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1.5px solid #A1663C;
-    background: transparent;
-    color: #3E1D0E;
-    cursor: pointer;
-    transition: opacity 0.15s;
-}
 
-#listaHolerites button:hover {
-    opacity: 0.75;
+@media (max-width: 480px) {
+
+    .holerite-card {
+        padding: 16px;
+    }
+
+    .holerite-campos {
+        grid-template-columns: 1fr;
+    }
+
+    .holerite-totais {
+        grid-template-columns: 1fr;
+    }
+
 }

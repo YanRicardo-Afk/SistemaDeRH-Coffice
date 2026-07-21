@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="../css/editar-funcionario.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/menu.css">
+
+    
 </head>
 
 <body>
 
     <div id="menu"></div>
 
-    <button class="btn-voltar" onclick="history.back()">
-        ← Voltar
-    </button>
+    <button id="btnVoltar" class="btn-voltar">
+    ← Voltar
+</button>
 
     <h1>Editar Funcionário</h1>
 
@@ -149,9 +151,9 @@
     </form>
 
     <p id="mensagem"></p>
-
-    <script src="../js/editarFuncionario.js"></script>
-    <script src="../js/carregarMenu.js"></script>
+    <script defer src="../js/navegacao.js"></script>
+    <script defer src="../js/editarFuncionario.js"></script>
+    <script defer src="../js/carregarMenu.js"></script>
     <script defer src="../js/auth.js"></script>
 
 </body>

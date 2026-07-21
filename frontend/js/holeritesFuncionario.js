@@ -67,3 +67,5 @@ async function carregarHolerites() {
 }
 
 carregarHolerites();
+
+configurarBotaoVoltar(`funcionario.html?id=${id}`);

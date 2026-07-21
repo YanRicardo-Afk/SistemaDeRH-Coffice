@@ -177,3 +177,5 @@ document
         }
 
     });
+
+    configurarBotaoVoltar(`funcionario.html?id=${id}`);
