@@ -53,67 +53,82 @@
 
         </section>
 
+        <div class="conteudo-grid">
 
+            <div class="coluna-esquerda">
 
-<section class="registro-hoje">
+                <section class="registro-hoje">
 
-    <h2>Registro de Hoje</h2>
+                    <h2>Registro de Hoje</h2>
 
-    <p class="data-hoje" id="dataHoje">
-        --/--/----
-    </p>
+                    <p class="data-hoje" id="dataHoje">
+                        --/--/----
+                    </p>
 
-    <div class="registro-item">
+                    <div class="registro-item">
 
-        <span>Entrada</span>
+                        <span>Entrada</span>
 
-        <strong id="horaEntrada">
-            --:--
-        </strong>
+                        <strong id="horaEntrada">
+                            --:--
+                        </strong>
 
-    </div>
+                    </div>
 
-    <div class="registro-item">
+                    <div class="registro-item">
 
-        <span>Saída</span>
+                        <span>Saída</span>
 
-        <strong id="horaSaida">
-            --:--
-        </strong>
+                        <strong id="horaSaida">
+                            --:--
+                        </strong>
 
-    </div>
+                    </div>
 
-</section>
+                </section>
 
-<div class="acoes-ponto">
+                <div class="acoes-ponto">
 
-    <button id="btnRegistrarPonto">
-        Carregando...
-    </button>
+                    <button id="btnRegistrarPonto">
+                        Carregando...
+                    </button>
 
-</div>
-
-        <section class="avisos">
-
-            <h2>Avisos</h2>
-
-            <div id="listaAvisos">
-
-                <img
-                    src="../assents/aviso2.jpeg"
-                    alt="Aviso 1"
-                    class="aviso-imagem"
-                >
-
-                <img
-                    src="../assents/aviso.jpeg"
-                    alt="Aviso 2"
-                    class="aviso-imagem"
-                >
+                </div>
 
             </div>
 
-        </section>
+            <section class="avisos">
+
+                <h2 class="avisos-titulo">Avisos</h2>
+
+                <div class="carrossel-avisos" id="carrosselAvisos">
+
+                    <div class="carrossel-track" id="carrosselTrack">
+
+                        <img
+                            src="../assents/aviso2.jpeg"
+                            alt="Aviso 1"
+                            class="aviso-imagem"
+                        >
+
+                        <img
+                            src="../assents/aviso.jpeg"
+                            alt="Aviso 2"
+                            class="aviso-imagem"
+                        >
+
+                    </div>
+
+                    <button class="carrossel-seta seta-esquerda" id="setaEsquerda" aria-label="Aviso anterior">&#10094;</button>
+                    <button class="carrossel-seta seta-direita" id="setaDireita" aria-label="Próximo aviso">&#10095;</button>
+
+                    <div class="carrossel-dots" id="carrosselDots"></div>
+
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
 

@@ -292,3 +292,125 @@ carregarPontoHoje();
 
 
 setInterval(atualizarRelogio, 1000);
+
+
+// ===== Carrossel de Avisos =====
+
+function initCarrosselAvisos() {
+
+    const container = document.getElementById("carrosselAvisos");
+    const track = document.getElementById("carrosselTrack");
+    const dotsContainer = document.getElementById("carrosselDots");
+    const btnEsquerda = document.getElementById("setaEsquerda");
+    const btnDireita = document.getElementById("setaDireita");
+
+    if (!track) return;
+
+    const slides = track.querySelectorAll(".aviso-imagem");
+
+    if (slides.length === 0) return;
+
+    let indiceAtual = 0;
+    let autoplayInterval = null;
+
+    slides.forEach((_, indice) => {
+
+        const dot = document.createElement("button");
+
+        dot.classList.add("carrossel-dot");
+
+        if (indice === 0) {
+            dot.classList.add("ativo");
+        }
+
+        dot.addEventListener("click", () => {
+            irParaSlide(indice);
+        });
+
+        dotsContainer.appendChild(dot);
+
+    });
+
+    const dots = dotsContainer.querySelectorAll(".carrossel-dot");
+
+    function atualizarCarrossel() {
+
+        track.style.transform = `translateX(-${indiceAtual * 100}%)`;
+
+        dots.forEach((dot, indice) => {
+            dot.classList.toggle("ativo", indice === indiceAtual);
+        });
+
+    }
+
+    function proximoSlide() {
+
+        indiceAtual = (indiceAtual + 1) % slides.length;
+
+        atualizarCarrossel();
+
+    }
+
+    function slideAnterior() {
+
+        indiceAtual = (indiceAtual - 1 + slides.length) % slides.length;
+
+        atualizarCarrossel();
+
+    }
+
+    function irParaSlide(indice) {
+
+        indiceAtual = indice;
+
+        atualizarCarrossel();
+
+        reiniciarAutoplay();
+
+    }
+
+    function iniciarAutoplay() {
+
+        autoplayInterval = setInterval(proximoSlide, 5000);
+
+    }
+
+    function reiniciarAutoplay() {
+
+        clearInterval(autoplayInterval);
+
+        iniciarAutoplay();
+
+    }
+
+    if (btnDireita) {
+
+        btnDireita.addEventListener("click", () => {
+            proximoSlide();
+            reiniciarAutoplay();
+        });
+
+    }
+
+    if (btnEsquerda) {
+
+        btnEsquerda.addEventListener("click", () => {
+            slideAnterior();
+            reiniciarAutoplay();
+        });
+
+    }
+
+    if (slides.length > 1) {
+
+        container.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+
+        container.addEventListener("mouseleave", iniciarAutoplay);
+
+        iniciarAutoplay();
+
+    }
+
+}
+
+initCarrosselAvisos();
