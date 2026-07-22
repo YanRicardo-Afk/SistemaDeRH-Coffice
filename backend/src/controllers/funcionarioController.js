@@ -89,58 +89,198 @@ async criar(req, res) {
             nome_completo,
             email,
             cargo,
+            data_nascimento,
             data_admissao,
             perfil,
-            senha
+            senha,
+            telefone
         } = req.body;
 
-        // validação dos obrigatórios
-        // (a matrícula não entra aqui: ela é sempre gerada automaticamente pelo servidor)
+
+        // ── Validação dos campos obrigatórios ───────────────────────
+
         if (
             !nome_completo ||
             !email ||
             !cargo ||
+            !data_nascimento ||
             !data_admissao ||
             !perfil ||
-            !senha
+            !senha ||
+            !telefone
         ) {
+
             return res.status(400).json({
                 erro: 'Preencha todos os campos obrigatórios'
             });
+
         }
 
-        const existe = await funcionarioModel.buscarPorEmail(email);
+
+        // ── Validação do nome ───────────────────────────────────────
+
+        const nomeValido =
+            /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(
+                nome_completo.trim()
+            );
+
+        if (!nomeValido) {
+
+            return res.status(400).json({
+                erro: 'O nome deve conter somente letras e espaços'
+            });
+
+        }
+
+
+        // ── Validação do telefone ───────────────────────────────────
+
+        if (!/^\d{10,11}$/.test(telefone)) {
+
+            return res.status(400).json({
+                erro: 'O telefone deve conter somente números e ter 10 ou 11 dígitos'
+            });
+
+        }
+
+
+        // ── Validação da data de nascimento ─────────────────────────
+
+        const nascimento =
+            new Date(`${data_nascimento}T00:00:00`);
+
+        const hoje =
+            new Date();
+
+        // Verifica se a data realmente é válida.
+        if (isNaN(nascimento.getTime())) {
+
+            return res.status(400).json({
+                erro: 'Data de nascimento inválida'
+            });
+
+        }
+
+        // Não permite data de nascimento no futuro.
+        if (nascimento > hoje) {
+
+            return res.status(400).json({
+                erro: 'A data de nascimento não pode ser futura'
+            });
+
+        }
+
+
+        // ── Calcula idade ───────────────────────────────────────────
+
+        let idade =
+            hoje.getFullYear() -
+            nascimento.getFullYear();
+
+        const mesAtual =
+            hoje.getMonth();
+
+        const mesNascimento =
+            nascimento.getMonth();
+
+        if (
+            mesAtual < mesNascimento ||
+            (
+                mesAtual === mesNascimento &&
+                hoje.getDate() < nascimento.getDate()
+            )
+        ) {
+
+            idade--;
+
+        }
+
+
+        // ── Idade mínima ────────────────────────────────────────────
+
+        if (idade < 14) {
+
+            return res.status(400).json({
+                erro: 'O funcionário deve ter pelo menos 14 anos de idade'
+            });
+
+        }
+
+
+        // ── Validação da senha ──────────────────────────────────────
+
+        if (senha.length < 6) {
+
+            return res.status(400).json({
+                erro: 'A senha deve possuir no mínimo 6 caracteres'
+            });
+
+        }
+
+
+        // ── Verificação de e-mail duplicado ─────────────────────────
+
+        const existe =
+            await funcionarioModel.buscarPorEmail(email);
 
         if (existe) {
+
             return res.status(400).json({
                 erro: 'Email já cadastrado'
             });
+
         }
 
-        const senha_hash = await bcrypt.hash(senha, 10);
 
-        const { id, matricula } = await funcionarioModel.criar({
-            ...req.body,
-            senha_hash
-        });
+        // ── Criptografa a senha ─────────────────────────────────────
 
-        res.status(201).json({
-            mensagem: 'Funcionário cadastrado com sucesso',
+        const senha_hash =
+            await bcrypt.hash(senha, 10);
+
+
+        // ── Cria o funcionário ──────────────────────────────────────
+
+        const {
             id,
             matricula
+        } = await funcionarioModel.criar({
+
+            ...req.body,
+
+            senha_hash
+
         });
+
+
+        // ── Resposta de sucesso ─────────────────────────────────────
+
+        res.status(201).json({
+
+            mensagem:
+                'Funcionário cadastrado com sucesso',
+
+            id,
+
+            matricula
+
+        });
+
 
     } catch (error) {
 
         console.error(error);
 
         res.status(500).json({
-            erro: 'Erro ao cadastrar funcionário'
+
+            erro:
+                'Erro ao cadastrar funcionário'
+
         });
 
     }
 
 }
+
 async buscarPorId(req, res) {
 
     try {

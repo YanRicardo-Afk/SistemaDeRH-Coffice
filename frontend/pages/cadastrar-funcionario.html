@@ -23,7 +23,15 @@
 
       <div class="field-group">
         <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" placeholder="Ex: Pedro Carvalho" required>
+        <input
+          type="text"
+          id="nome"
+          placeholder="Ex: Pedro Carvalho"
+          required
+          pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+"
+          title="O nome deve conter somente letras e espaços."
+        >
+        <span id="nomeErro" class="field-error"></span>
       </div>
 
       <div class="field-group">
@@ -35,6 +43,7 @@
       <div class="field-group">
         <label for="dataNascimento">Data de Nascimento</label>
         <input type="date" id="dataNascimento" required>
+        <span id="dataNascimentoErro" class="field-error"></span>
       </div>
 
       <div class="field-group">
@@ -67,8 +76,18 @@
 
       <div class="field-group">
         <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" placeholder="(81) 9 0000-0000" required>
-      </div>
+        <input
+          type="tel"
+          id="telefone"
+          placeholder="(81) 9 0000-0000"
+          required
+          inputmode="numeric"
+          maxlength="11"
+          pattern="[0-9]{10,11}"
+          title="O telefone deve conter somente números."
+        >
+        <span id="telefoneErro" class="field-error"></span>
+     </div>
 
       <!-- ── Dados Profissionais ── -->
       <span class="section-label">Dados Profissionais</span>
@@ -77,6 +96,11 @@
         <label for="cargo">Cargo</label>
         <select id="cargo" required>
           <option value="">Selecione</option>
+          <option value="RH">RH</option>
+          <option value="Analista">Analista</option>
+          <option value="Gerente">Gerente</option>
+          <option value="Desenvolvedor">Desenvolvedor</option>
+          <option value="Jovem Aprendiz">Jovem Aprendiz</option>
           <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
           <option value="Atendente de Suporte / Helpdesk">Atendente de Suporte / Helpdesk</option>
           <option value="Analista de Vendas">Analista de Vendas</option>
@@ -113,7 +137,14 @@
 
       <div class="field-group">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" placeholder="Mínimo 8 caracteres" required>
+        <input
+          type="password"
+          id="senha"
+          placeholder="Mínimo 6 caracteres"
+          minlength="6"
+          required
+        >
+        <span id="senhaErro" class="field-error"></span>
       </div>
 
     </div><!-- /form-grid -->
@@ -127,6 +158,31 @@
   </form>
 
   <p id="mensagem"></p>
+
+
+<!-- Modal de cadastro realizado com sucesso -->
+<div id="modalSucesso" class="modal-overlay">
+
+  <div class="modal-sucesso">
+
+    <div class="modal-icone">
+      ✓
+    </div>
+
+    <h2>Cadastro realizado!</h2>
+
+    <p id="mensagemSucesso">
+      Funcionário cadastrado com sucesso!
+    </p>
+
+    <p class="modal-redirecionamento">
+      Você será redirecionado para a lista de funcionários.
+    </p>
+
+  </div>
+
+</div>
+
   <script defer src="../js/navegacao.js"></script>
   <script defer src="../js/cadastrarFuncionario.js"></script>
   <script defer src="../js/carregarMenu.js"></script>
