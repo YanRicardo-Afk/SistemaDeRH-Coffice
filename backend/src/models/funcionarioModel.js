@@ -42,10 +42,28 @@ class FuncionarioModel {
 
     return rows[0];
     }
+
+    // Gera a próxima matrícula disponível (numérica, com 5 dígitos).
+    // Ignora matrículas não-numéricas (ex.: "RH001" do seed) ao calcular o próximo número.
+    async gerarProximaMatricula() {
+
+    const [rows] = await pool.execute(`
+        SELECT matricula
+        FROM funcionarios
+        WHERE matricula REGEXP '^[0-9]+$'
+        ORDER BY CAST(matricula AS UNSIGNED) DESC
+        LIMIT 1
+    `);
+
+    const proximoNumero =
+        rows.length > 0 ? parseInt(rows[0].matricula, 10) + 1 : 1;
+
+    return String(proximoNumero).padStart(5, '0');
+    }
+
     async criar(funcionario) {
 
     const {
-        matricula,
         nome_completo,
         status_civil = null,
         data_nascimento = null,
@@ -59,38 +77,64 @@ class FuncionarioModel {
         senha_hash
     } = funcionario;
 
-    const [result] = await pool.execute(`
-        INSERT INTO funcionarios (
-            matricula,
-            nome_completo,
-            status_civil,
-            data_nascimento,
-            endereco,
-            email,
-            telefone,
-            cargo,
-            data_admissao,
-            data_ferias,
-            perfil,
-            senha_hash
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `, [
-        matricula,
-        nome_completo,
-        status_civil,
-        data_nascimento,
-        endereco,
-        email,
-        telefone,
-        cargo,
-        data_admissao,
-        data_ferias,
-        perfil,
-        senha_hash
-    ]);
+    // A matrícula é sempre gerada pelo servidor, nunca recebida do cliente,
+    // garantindo que seja automática e que não se repita.
+    // Em caso de corrida entre dois cadastros simultâneos, tenta novamente
+    // com o próximo número.
+    const MAX_TENTATIVAS = 5;
 
-    return result.insertId;
+    for (let tentativa = 0; tentativa < MAX_TENTATIVAS; tentativa++) {
+
+        const matricula = await this.gerarProximaMatricula();
+
+        try {
+
+            const [result] = await pool.execute(`
+                INSERT INTO funcionarios (
+                    matricula,
+                    nome_completo,
+                    status_civil,
+                    data_nascimento,
+                    endereco,
+                    email,
+                    telefone,
+                    cargo,
+                    data_admissao,
+                    data_ferias,
+                    perfil,
+                    senha_hash
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `, [
+                matricula,
+                nome_completo,
+                status_civil,
+                data_nascimento,
+                endereco,
+                email,
+                telefone,
+                cargo,
+                data_admissao,
+                data_ferias,
+                perfil,
+                senha_hash
+            ]);
+
+            return { id: result.insertId, matricula };
+
+        } catch (error) {
+
+            const ehMatriculaDuplicada =
+                error.code === 'ER_DUP_ENTRY' &&
+                error.message.includes('matricula');
+
+            if (ehMatriculaDuplicada && tentativa < MAX_TENTATIVAS - 1) {
+                continue;
+            }
+
+            throw error;
+        }
+    }
 }
     async buscarPorId(id) {
 

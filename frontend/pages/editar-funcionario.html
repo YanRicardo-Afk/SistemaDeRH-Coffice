@@ -41,7 +41,8 @@
 
             <div class="field-group">
                 <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" required>
+                <input type="text" id="matricula" readonly>
+                <span class="opcional">A matrícula não pode ser alterada</span>
             </div>
 
             <div class="field-group">
@@ -86,7 +87,19 @@
 
             <div class="field-group">
                 <label for="cargo">Cargo</label>
-                <input type="text" id="cargo" required>
+                <select id="cargo" required>
+                    <option value="">Selecione</option>
+                    <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
+                    <option value="Atendente de Suporte / Helpdesk">Atendente de Suporte / Helpdesk</option>
+                    <option value="Analista de Vendas">Analista de Vendas</option>
+                    <option value="Executivo de Contas (Account Executive)">Executivo de Contas (Account Executive)</option>
+                    <option value="Desenvolvedor(a) de Software / Programador(a)">Desenvolvedor(a) de Software / Programador(a)</option>
+                    <option value="Analista de Qualidade (QA)">Analista de Qualidade (QA)</option>
+                    <option value="Analista de Recrutamento e Seleção">Analista de Recrutamento e Seleção</option>
+                    <option value="Especialista em Treinamento e Desenvolvimento">Especialista em Treinamento e Desenvolvimento</option>
+                    <option value="Coordenador(a) de Projetos">Coordenador(a) de Projetos</option>
+                    <option value="Gerente de Operações">Gerente de Operações</option>
+                </select>
             </div>
 
             <div class="field-group">

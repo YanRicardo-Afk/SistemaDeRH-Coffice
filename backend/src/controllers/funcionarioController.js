@@ -26,12 +26,66 @@ class FuncionarioController {
     }
 
 }
+
+// GET /funcionarios/gerar-matricula
+// Retorna a próxima matrícula disponível, para exibir como sugestão/preview no formulário.
+// A matrícula definitiva é sempre calculada de novo (e de forma segura) no momento do cadastro.
+async gerarMatricula(req, res) {
+
+    try {
+
+        const matricula =
+            await funcionarioModel.gerarProximaMatricula();
+
+        res.json({ matricula });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            erro: 'Erro ao gerar matrícula'
+        });
+
+    }
+
+}
+
+// GET /funcionarios/verificar-email?email=...
+// Permite ao formulário avisar em tempo real se o e-mail já está em uso.
+async verificarEmail(req, res) {
+
+    try {
+
+        const { email } = req.query;
+
+        if (!email) {
+            return res.status(400).json({
+                erro: 'Informe o e-mail'
+            });
+        }
+
+        const existe = await funcionarioModel.buscarPorEmail(email);
+
+        res.json({ disponivel: !existe });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            erro: 'Erro ao verificar e-mail'
+        });
+
+    }
+
+}
+
 async criar(req, res) {
 
     try {
 
         const {
-            matricula,
             nome_completo,
             email,
             cargo,
@@ -41,8 +95,8 @@ async criar(req, res) {
         } = req.body;
 
         // validação dos obrigatórios
+        // (a matrícula não entra aqui: ela é sempre gerada automaticamente pelo servidor)
         if (
-            !matricula ||
             !nome_completo ||
             !email ||
             !cargo ||
@@ -65,14 +119,15 @@ async criar(req, res) {
 
         const senha_hash = await bcrypt.hash(senha, 10);
 
-        const id = await funcionarioModel.criar({
+        const { id, matricula } = await funcionarioModel.criar({
             ...req.body,
             senha_hash
         });
 
         res.status(201).json({
             mensagem: 'Funcionário cadastrado com sucesso',
-            id
+            id,
+            matricula
         });
 
     } catch (error) {

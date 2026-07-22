@@ -168,6 +168,54 @@ h1 {
   cursor: pointer;
 }
 
+/* Texto de apoio abaixo de um campo (ex.: matrícula gerada, aviso de e-mail) */
+.field-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-height: 1em;
+}
+
+.field-hint.erro {
+  color: #b3261e;
+}
+
+.field-hint.sucesso {
+  color: #2e7d32;
+}
+
+/* Matrícula automática: aparência de campo "travado" */
+#formFuncionario input#matricula[readonly] {
+  background: var(--accent-soft);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* E-mail: input do usuário + domínio fixo @coffice.com */
+.email-input {
+  display: flex;
+  align-items: stretch;
+}
+
+.email-input input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.email-input .email-dominio {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  border: 1.5px solid var(--border);
+  border-left: none;
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 /* Input de data — label já explicita o campo */
 #formFuncionario input[type="date"] {
   color: var(--text);

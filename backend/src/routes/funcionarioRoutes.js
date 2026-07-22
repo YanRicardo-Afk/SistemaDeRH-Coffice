@@ -18,6 +18,22 @@ router.get(
     funcionarioController.listar
 );
 
+// IMPORTANTE: essas rotas precisam vir antes de '/:id',
+// senão o Express interpreta "gerar-matricula"/"verificar-email" como um :id
+router.get(
+    '/gerar-matricula',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.gerarMatricula
+);
+
+router.get(
+    '/verificar-email',
+    authMiddleware,
+    roleMiddleware(['rh']),
+    funcionarioController.verificarEmail
+);
+
 router.get(
     '/:id',
     authMiddleware,
