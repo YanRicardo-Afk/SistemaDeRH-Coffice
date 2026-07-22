@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffice — Gestão de RH Simplificada</title>
+<meta name="description" content="Coffice: controle de ponto, gestão de funcionários, quadro de avisos e holerites online em um só lugar.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/mainPage.css">
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <!-- ============================================================
+         LOGO COFFICE — SUBSTITUA AQUI (navbar)
+         Opção A (imagem única): apague tudo dentro de <a class="logo"> e coloque:
+           <img src="logo.png" alt="Coffice" class="logo-img">
+         Opção B (manter texto "Coffice", trocar só o ícone): troque apenas
+         o conteúdo de <span class="logo-mark"> pela sua imagem/SVG.
+    ============================================================= -->
+    <a href="#top" class="logo" id="logo-navbar">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 8h13a3 3 0 0 1 0 6h-1" stroke-linecap="round"/>
+          <path d="M4 8v7a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-2" stroke-linecap="round"/>
+          <path d="M7 3.5c.5 1-1 1.5-.5 2.5M11 3.5c.5 1-1 1.5-.5 2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="logo-text">Coffice</span>
+    </a>
+    <!-- FIM DO BLOCO DA LOGO (navbar) -->
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#contato">Contato</a>
+      <a href="login.html" class="btn btn-primary">Acessar Sistema</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" style="color: var(--cream);">Sistema de gestão de RH</span>
+      <h1>Coffice — gestão de RH <em>simplificada.</em></h1>
+      <p class="lede">Controle de ponto, gestão de funcionários e muito mais em um só lugar. Tudo o que o seu time de RH precisa, sem complicação.</p>
+      <div class="hero-actions">
+        <a href="login.html" class="btn btn-light">Começar Agora</a>
+        <a href="#funcionalidades" class="btn btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.4);">Ver funcionalidades</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>100%</strong><span>Online e centralizado</span></div>
+        <div><strong>2 perfis</strong><span>RH e Funcionário</span></div>
+        <div><strong>1 clique</strong><span>Para bater o ponto</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <!-- Selo decorativo: carimbo de ponto/relógio, elemento de assinatura visual da marca -->
+      <svg class="stamp-badge" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#E5CDB1" stroke-width="3" stroke-dasharray="4 7"/>
+        <circle cx="50" cy="50" r="34" fill="#A1663C"/>
+        <path d="M50 34v16l11 7" stroke="#3E1D0E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- IMAGEM: aqui entra uma imagem de pessoas trabalhando em ambiente de escritório /
+           dashboard do sistema. Sugestão: foto de equipe colaborando ou mockup da tela
+           inicial do Coffice em um notebook/tablet. -->
+      <div class="image-placeholder">
+        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="4" width="18" height="13" rx="2"/>
+          <path d="M8 21h8M12 17v4" stroke-linecap="round"/>
+        </svg>
+        <strong>[ Imagem ilustrativa aqui ]</strong>
+        <small>Sugestão: foto de pessoas trabalhando em escritório, ou um mockup do dashboard do Coffice.</small>
+      </div>
+      <span class="mock-tag">Dashboard Coffice</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Funcionalidades ===== -->
+<section class="features" id="funcionalidades">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Funcionalidades</span>
+      <h2>Tudo o que o RH precisa, em um só sistema</h2>
+      <p>Do controle de ponto ao holerite, o Coffice reúne as principais rotinas de recursos humanos em uma plataforma simples de usar.</p>
+    </div>
+
+    <div class="feature-grid reveal-stagger">
+      <div class="feature-card reveal" style="--i:0">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Bater Ponto</h3>
+        <p>Registro rápido de entrada e saída, com histórico completo de horários direto do navegador ou celular.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--i:1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="8" r="3.2"/>
+            <path d="M3.5 19c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" stroke-linecap="round"/>
+            <circle cx="17" cy="9" r="2.6"/>
+            <path d="M15 13.3c2.4.3 4 2.2 4 4.7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Gestão de Funcionários</h3>
+        <p>Cadastro, dados cadastrais, cargos e histórico de cada colaborador organizados em um único lugar.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--i:2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 3v18" stroke-linecap="round"/>
+            <path d="M6 4h11l-2.3 3.5L17 11H6" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Quadro de Avisos</h3>
+        <p>Comunicados, avisos e novidades da empresa chegando de forma clara para todo o time.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--i:3">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke-linejoin="round"/>
+            <path d="M9 12h6M9 15.5h6M9 8.5h3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Holerites Online</h3>
+        <p>Contracheques disponíveis a qualquer momento, com acesso individual e seguro para cada funcionário.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--i:4">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="5" y="11" width="14" height="9" rx="2"/>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke-linecap="round"/>
+            <circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Controle de Acesso</h3>
+        <p>Perfis distintos para RH e Funcionário, cada um enxergando exatamente o que precisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Diferenciais ===== -->
+<section class="differentials" id="diferenciais">
+  <div class="container diff-layout">
+    <div class="diff-visual reveal">
+      <!-- IMAGEM: sugestão de foto de uma pessoa da equipe de RH usando o sistema em um
+           tablet ou notebook, transmitindo confiança e organização. -->
+      <div class="image-placeholder">
+        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="8" r="3.4"/>
+          <path d="M5 20c0-4 3.1-6.6 7-6.6s7 2.6 7 6.6" stroke-linecap="round"/>
+        </svg>
+        <strong>[ Imagem ilustrativa aqui ]</strong>
+        <small>Sugestão: pessoa da equipe de RH utilizando o Coffice em um notebook ou tablet.</small>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow">Diferenciais</span>
+      <h2 style="margin: 14px 0 30px; font-size: clamp(1.7rem, 3vw, 2.2rem);">Feito para simplificar a rotina do RH</h2>
+
+      <div class="diff-list">
+        <div class="diff-item reveal">
+          <span class="diff-num">01</span>
+          <div>
+            <h3>Interface intuitiva</h3>
+            <p>Navegação limpa e direta, pensada para que qualquer pessoa da empresa consiga usar sem treinamento.</p>
+          </div>
+        </div>
+        <div class="diff-item reveal">
+          <span class="diff-num">02</span>
+          <div>
+            <h3>Acesso personalizado</h3>
+            <p>O RH tem funcionalidades administrativas completas, enquanto o funcionário acessa apenas o que é relevante para ele.</p>
+          </div>
+        </div>
+        <div class="diff-item reveal">
+          <span class="diff-num">03</span>
+          <div>
+            <h3>Gestão completa de RH</h3>
+            <p>Do ponto ao holerite, tudo integrado — sem precisar de planilhas paralelas ou sistemas soltos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA final ===== -->
+<section id="contato">
+  <div class="container reveal">
+    <div class="cta-band">
+      <div>
+        <h2>Pronto para simplificar a gestão de RH da sua empresa?</h2>
+        <p>Acesse o Coffice e centralize ponto, funcionários, avisos e holerites em um só sistema.</p>
+      </div>
+      <a href="login.html" class="btn btn-light">Acessar Sistema</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <!-- LOGO COFFICE — SUBSTITUA AQUI TAMBÉM (footer, mesma lógica do navbar) -->
+        <a href="#top" class="logo" id="logo-footer">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 8h13a3 3 0 0 1 0 6h-1" stroke-linecap="round"/>
+              <path d="M4 8v7a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">Coffice</span>
+        </a>
+        <p>Sistema completo de gestão de RH: ponto, funcionários, avisos e holerites em um só lugar.</p>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Produto</h4>
+          <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="login.html">Acessar sistema</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#contato">Contato</a>
+          <a href="#top">Sobre</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Coffice - Todos os direitos reservados</span>
+      <span>Feito para simplificar o RH.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/mainPage.js" defer></script>
+
+</body>
+</html>
