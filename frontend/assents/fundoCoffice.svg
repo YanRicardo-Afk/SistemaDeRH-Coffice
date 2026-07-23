@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="296.99997mm"
+   height="210mm"
+   viewBox="0 0 1122.5196 793.70081"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer2">
+    <rect
+       style="fill:#e5cdb1;fill-opacity:1;stroke:none;stroke-width:15.1181;stroke-linejoin:round;stroke-opacity:0.615686"
+       id="rect406"
+       width="4275.4585"
+       height="803.00916"
+       x="-2.188036"
+       y="0" />
+  </g>
+  <g
+     id="layer1"
+     transform="translate(-135.65823,-131.28216)">
+    <g
+       id="layer1-5"
+       transform="matrix(0.12906774,-0.12517321,0.11964253,0.13503412,-45.371066,77.983446)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:168.174px;font-family:Nexa;-inkscape-font-specification:'Nexa Heavy';letter-spacing:0px;writing-mode:lr-tb;direction:ltr;display:inline;fill:#000000;stroke-width:33.1051"
+         x="356.28195"
+         y="362.02237"
+         id="text1"><tspan
+           id="tspan1"
+           x="356.28195"
+           y="362.02237"
+           style="font-style:normal;font-variant:normal;font-weight:100;font-stretch:normal;font-family:Nexa;-inkscape-font-specification:'Nexa Thin';letter-spacing:0px;fill:#3e1d0e;fill-opacity:1;stroke-width:33.1051">Coffice</tspan></text>
+      <circle
+         style="fill:#3e1d0e;fill-opacity:1;stroke-width:15.8605"
+         id="path2"
+         cx="269.12842"
+         cy="283.35065"
+         r="51.418846" />
+      <path
+         id="path3"
+         style="fill:#3e1d0e;fill-opacity:1;stroke:none;stroke-width:1.88976;stroke-dasharray:none;stroke-opacity:1"
+         d="m 269.62697,160.96485 c -26.87915,0 -50.9162,5.94513 -72.10938,17.83398 -20.93472,11.88886 -37.34553,28.5601 -49.23438,50.01172 -11.6304,21.19318 -17.44531,45.3585 -17.44531,72.4961 0,27.1376 5.81491,51.43119 17.44531,72.88281 11.88885,21.19318 28.42988,37.7342 49.62305,49.62305 1.59104,0.89253 3.19723,1.7526 4.82031,2.57813 l 4.03907,-16.35157 c -0.11017,-0.0607 -0.22008,-0.12248 -0.33008,-0.18359 -18.60864,-10.59659 -33.08179,-25.198 -43.41992,-43.80664 -10.07968,-18.8671 -15.1211,-40.44758 -15.1211,-64.74219 0,-24.29462 5.04142,-45.74683 15.1211,-64.35547 10.33813,-18.8671 24.81128,-33.47046 43.41992,-43.8086 18.60864,-10.59658 39.80042,-15.89453 63.57813,-15.89453 16.28256,0 31.5331,3.10181 45.74804,9.30469 14.47338,5.94443 27.39563,14.60266 38.76758,25.97461 l 11.63086,-11.24219 c -12.66421,-12.92267 -27.26758,-22.87332 -43.80859,-29.85156 -16.54101,-6.97824 -34.11597,-10.46875 -52.72461,-10.46875 z m -1.5918,181.46289 a 57.982952,115.9659 0 0 0 -54.53516,76.57227 c 0.0248,0.005 0.0494,0.0104 0.0742,0.0156 l -2.68359,11.1875 c 15.98016,6.81752 33.41516,10.58898 52.30859,11.31445 -0.0492,-4.81719 -0.0742,-9.87489 -0.0742,-15.08985 0,-16.29594 0.2555,-31.0456 0.67188,-41.77539 0.20819,-5.3649 0.455,-9.71345 0.74023,-12.82226 0.14261,-1.5544 0.28601,-2.77929 0.48047,-3.80469 0.0972,-0.51269 0.18397,-0.95208 0.41797,-1.56445 0.11699,-0.30618 0.2429,-0.66154 0.66797,-1.2168 0.42508,-0.55525 1.49414,-1.62305 3.25,-1.62305 1.75587,0 2.82298,1.0678 3.24805,1.62305 0.42508,0.55526 0.55293,0.91062 0.66992,1.2168 0.234,0.61237 0.32077,1.05176 0.41797,1.56445 0.19446,1.0254 0.33786,2.25029 0.48047,3.80469 0.28523,3.10881 0.53205,7.45736 0.74023,12.82226 0.41638,10.72979 0.67187,25.47945 0.67187,41.77539 0,5.22712 -0.0267,10.29576 -0.0762,15.12305 16.84449,-0.59166 32.84723,-3.92015 48.00782,-9.98437 0.57324,-0.23812 1.14447,-0.47928 1.71289,-0.72461 l -3.2461,-13.53516 c 0.0859,-0.0304 0.17176,-0.0612 0.25782,-0.0918 a 57.982952,115.9659 0 0 0 -54.20313,-74.78711 z m 88.43164,47.65625 c -8.22198,8.03927 -17.28286,14.78788 -27.18359,20.24415 l 4.11133,16.65429 c 12.75802,-6.5715 24.19613,-15.12298 34.31445,-25.6543 z"
+         transform="translate(-2.0146973e-6)" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(115.07737,109.49644)"
+       id="use28" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(116.21675,218.99289)"
+       id="use29" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(117.35613,328.48933)"
+       id="use30" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(118.49551,437.98577)"
+       id="use31" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(119.63489,547.48222)"
+       id="use32" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(120.77427,656.97866)"
+       id="use33" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(121.91365,766.4751)"
+       id="use34" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(123.05303,875.97155)"
+       id="use35" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(229.01536,109.49644)"
+       id="use48" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(230.15474,218.99289)"
+       id="use49" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(231.29412,328.48933)"
+       id="use50" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(232.4335,437.98577)"
+       id="use51" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(233.57288,547.48222)"
+       id="use52" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(234.71226,656.97866)"
+       id="use53" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(235.85164,766.4751)"
+       id="use54" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(236.99102,875.97155)"
+       id="use55" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(342.95335,109.49644)"
+       id="use68" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(344.09273,218.99289)"
+       id="use69" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(345.23211,328.48933)"
+       id="use70" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(346.37149,437.98577)"
+       id="use71" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(347.51087,547.48222)"
+       id="use72" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(348.65025,656.97866)"
+       id="use73" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(349.78963,766.4751)"
+       id="use74" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(350.92901,875.97155)"
+       id="use75" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(456.89134,109.49644)"
+       id="use88" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(458.03072,218.99289)"
+       id="use89" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(459.1701,328.48933)"
+       id="use90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(460.30948,437.98577)"
+       id="use91" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(461.44886,547.48222)"
+       id="use92" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(462.58824,656.97866)"
+       id="use93" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(463.72762,766.4751)"
+       id="use94" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(464.867,875.97155)"
+       id="use95" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(570.82933,109.49644)"
+       id="use108" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(571.96871,218.99289)"
+       id="use109" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(573.10809,328.48933)"
+       id="use110" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(574.24747,437.98577)"
+       id="use111" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(575.38685,547.48222)"
+       id="use112" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(576.52623,656.97866)"
+       id="use113" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(577.66561,766.4751)"
+       id="use114" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(578.80499,875.97155)"
+       id="use115" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(684.76732,109.49644)"
+       id="use128" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(685.9067,218.99289)"
+       id="use129" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(687.04608,328.48933)"
+       id="use130" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(688.18546,437.98577)"
+       id="use131" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(689.32484,547.48222)"
+       id="use132" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(690.46422,656.97866)"
+       id="use133" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(691.6036,766.4751)"
+       id="use134" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(692.74298,875.97155)"
+       id="use135" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(798.70531,109.49644)"
+       id="use148" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(799.84469,218.99289)"
+       id="use149" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(800.98407,328.48933)"
+       id="use150" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(802.12345,437.98577)"
+       id="use151" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(803.26283,547.48222)"
+       id="use152" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(804.40221,656.97866)"
+       id="use153" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(805.54159,766.4751)"
+       id="use154" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(806.68097,875.97155)"
+       id="use155" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(912.6433,109.49644)"
+       id="use168" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(913.78268,218.99289)"
+       id="use169" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(914.92206,328.48933)"
+       id="use170" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(916.06144,437.98577)"
+       id="use171" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(917.20082,547.48222)"
+       id="use172" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(918.3402,656.97866)"
+       id="use173" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(919.47958,766.4751)"
+       id="use174" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(920.61896,875.97155)"
+       id="use175" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1026.5813,109.49644)"
+       id="use188" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1027.7207,218.99289)"
+       id="use189" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1028.86,328.48933)"
+       id="use190" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1029.9994,437.98577)"
+       id="use191" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1031.1388,547.48222)"
+       id="use192" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1032.2782,656.97866)"
+       id="use193" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1033.4176,766.4751)"
+       id="use194" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1034.5569,875.97155)"
+       id="use195" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1140.5193,109.49644)"
+       id="use208" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1141.6587,218.99289)"
+       id="use209" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1142.798,328.48933)"
+       id="use210" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1143.9374,437.98577)"
+       id="use211" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1145.0768,547.48222)"
+       id="use212" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1146.2162,656.97866)"
+       id="use213" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1147.3556,766.4751)"
+       id="use214" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1148.4949,875.97155)"
+       id="use215" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1254.4573,109.49644)"
+       id="use228" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1255.5966,218.99289)"
+       id="use229" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#layer1-5"
+       transform="translate(1256.736,328.48933)"
+       id="use230" />
+  </g>
+</svg>
