@@ -213,6 +213,19 @@ async excluir(id) {
 
     return result.affectedRows;
 }
+
+    // Usada na troca de senha do primeiro acesso (e futuramente em "esqueci minha senha").
+    // Sempre que a senha é alterada por essa via, marca primeiro_login como concluído.
+    async atualizarSenha(id, senha_hash) {
+
+    await pool.execute(`
+        UPDATE funcionarios
+        SET
+            senha_hash = ?,
+            primeiro_login = FALSE
+        WHERE id = ?
+    `, [senha_hash, id]);
+}
 }
 
 module.exports = new FuncionarioModel();

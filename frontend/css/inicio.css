@@ -41,7 +41,7 @@ body{
 
     margin-top:8px;
 
-    color:#7A6659;
+    color:#ffffff;
 
     font-size:16px;
 
@@ -256,9 +256,9 @@ body{
 
     width:100%;
 
-    max-width:380px;
+    max-width:480px;
 
-    aspect-ratio:210 / 297;
+    aspect-ratio:297 / 210;
 
     overflow:hidden;
 
@@ -424,7 +424,7 @@ body{
 
     .carrossel-avisos{
 
-        max-width:320px;
+        max-width:420px;
 
         border-radius:18px;
 
@@ -452,7 +452,7 @@ body{
 
     .carrossel-avisos{
 
-        max-width:260px;
+        max-width:340px;
 
         border-radius:16px;
 

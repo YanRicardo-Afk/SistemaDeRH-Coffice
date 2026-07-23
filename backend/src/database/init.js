@@ -20,9 +20,26 @@ async function createTables() {
                 data_ferias DATE,
                 perfil ENUM('rh', 'funcionario') NOT NULL,
                 senha_hash TEXT NOT NULL,
+                primeiro_login BOOLEAN NOT NULL DEFAULT TRUE,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
+
+        // Garante a coluna primeiro_login em bancos criados antes dessa atualização.
+        // (ignora o erro caso a coluna já exista)
+        try {
+
+            await pool.execute(`
+                ALTER TABLE funcionarios
+                ADD COLUMN primeiro_login BOOLEAN NOT NULL DEFAULT TRUE
+            `);
+
+        } catch (error) {
+
+            if (error.code !== 'ER_DUP_FIELDNAME') {
+                throw error;
+            }
+        }
 
         // TABELA HOLERITES
         await pool.execute(`

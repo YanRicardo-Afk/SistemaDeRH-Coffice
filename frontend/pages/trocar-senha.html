@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-vindo(a) - Coffice</title>
+  <link rel="stylesheet" href="../css/trocar-senha.css">
+</head>
+<body>
+
+  <!-- Fundo desfocado (reflexo da tela) -->
+  <div class="bg-blur" aria-hidden="true">
+    <div class="bg-blur__card"></div>
+  </div>
+
+  <div class="senha-card">
+
+    <a href="#" class="logo">
+      <img src="../assents/CoffeLogoCorrigida.svg" alt="Coffice">
+    </a>
+
+    <h2>Bem-vindo(a) ao Coffice!</h2>
+    <p class="subtitulo">
+      Este é o seu primeiro acesso. Por segurança, defina uma nova senha
+      para continuar.
+    </p>
+
+    <form id="trocarSenhaForm">
+      <div class="field-group">
+        <label class="field-label" for="novaSenha">Nova senha</label>
+        <input type="password" id="novaSenha" placeholder="Digite a nova senha" minlength="6" required>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="confirmarSenha">Confirme a nova senha</label>
+        <input type="password" id="confirmarSenha" placeholder="Digite a nova senha novamente" minlength="6" required>
+      </div>
+
+      <button type="submit">Salvar e entrar</button>
+    </form>
+
+    <p id="erro"></p>
+    <p id="sucesso"></p>
+
+  </div>
+
+  <script src="../js/trocar-senha.js"></script>
+</body>
+</html>

@@ -34,6 +34,12 @@ form.addEventListener('submit', async (e) => {
             JSON.stringify(data.usuario)
         );
 
+        // se for o primeiro login do usuário, pede a troca de senha antes de entrar no sistema
+        if (data.usuario.primeiro_login) {
+            window.location.href = 'trocar-senha.html';
+            return;
+        }
+
         // redireciona
         window.location.href = 'inicio.html';
 

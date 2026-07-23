@@ -1,0 +1,181 @@
+/* ===== COFFICE TROCAR SENHA — trocar-senha.css ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark:       #3E1D0E;
+  --text-light:    #E5CDB1;
+  --text-muted:    #c4a882;
+  --accent:        #A1663C;
+  --accent-hover:  #8a5230;
+  --input-bg:      #f5ece0;
+  --radius-card:   22px;
+  --radius-input:  50px;
+  --font:          'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ══ FUNDO BLUR ══ */
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-blur__card {
+  width: min(480px, 90vw);
+  height: 460px;
+  border-radius: var(--radius-card);
+  background: var(--bg-dark);
+  transform: scale(1.15);
+  filter: blur(28px);
+  opacity: 0.55;
+}
+
+/* ── Card principal ── */
+.senha-card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 92vw);
+  background: var(--bg-dark);
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  padding: 40px 40px 44px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
+
+.senha-card h2 {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.field-group {
+  margin-bottom: 18px;
+}
+
+#trocarSenhaForm input[type="password"] {
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: var(--radius-input);
+  border: 1.5px solid transparent;
+  background: var(--input-bg);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: #4a2a14;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#trocarSenhaForm input::placeholder {
+  color: #b8956d;
+  font-weight: 400;
+}
+
+#trocarSenhaForm input:focus {
+  border-color: var(--accent);
+}
+
+#trocarSenhaForm button[type="submit"] {
+  margin-top: 10px;
+  width: 100%;
+  padding: 13px 36px;
+  border-radius: var(--radius-input);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#trocarSenhaForm button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+#erro {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #f08080;
+  min-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+#sucesso {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #8fd19e;
+  min-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .senha-card {
+    padding: 32px 26px 36px;
+  }
+
+  .senha-card h2 {
+    font-size: 1.6rem;
+  }
+}
