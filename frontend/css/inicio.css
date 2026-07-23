@@ -6,21 +6,74 @@ body{
 
     font-family:'Inter',sans-serif;
 
-    background-image:url("../assents/cofficeFundo3.jpeg");
+    /* Fundo em degradê marrom/espresso (mesmo estilo do hero da landing page),
+       no lugar da imagem de fundo (cofficeFundo3.jpeg) */
+    background: radial-gradient(120% 140% at 15% 0%, #4a2612 0%, #2A1409 55%, #1c0d05 100%);
 
-    background-repeat:no-repeat;
-
-    background-size:cover;
-
-    background-position:right center;
+    min-height:100vh;
 
     position:relative;
+
+    overflow-x:hidden;
+
+}
+
+/* Anéis decorativos (mesma assinatura visual do hero da landing page) */
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-180px;
+
+    right:-180px;
+
+    width:520px;
+
+    height:520px;
+
+    border-radius:50%;
+
+    border:46px solid rgba(229,205,177,0.06);
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-220px;
+
+    left:-140px;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    border:60px solid rgba(161,102,60,0.10);
+
+    pointer-events:none;
+
+    z-index:0;
 
 }
 
 .layout-principal{
 
     padding:32px 28px 24px;
+
+    position:relative;
+
+    z-index:1;
 
 }
 /* Header */
@@ -264,9 +317,9 @@ body{
 
     border-radius:22px;
 
-    border:0.5px solid rgba(62,29,14,0.2);
+    border:0.5px solid rgba(229,205,177,0.25);
 
-    background:rgba(0,0,0,0.06);
+    background:rgba(0,0,0,0.15);
 
 }
 
@@ -381,7 +434,6 @@ body{
 
     body {
         padding: 16px;
-        background-position: center;
     }
 
     .cabecalho-inicio{
