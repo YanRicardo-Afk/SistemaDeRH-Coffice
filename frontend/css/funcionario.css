@@ -260,6 +260,22 @@ h1{
 
 }
 
+#btnAdicionarHolerite{
+
+    background:#3B6D11;
+
+    color:white;
+
+    border:none;
+
+}
+
+#btnAdicionarHolerite:hover{
+
+    background:#325C0E;
+
+}
+
 #btnHolerites,
 #btnPontos{
 

@@ -1,76 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cadastrarHolerite</title>
-    <link rel="stylesheet" href="../css/cadastrar-holerite.css">
+    <title>Cadastrar Holerite</title>
+
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/navbarSuperior.css">
+    <link rel="stylesheet" href="../css/cadastrar-holerite.css">
+
+    <script defer src="../js/auth.js"></script>
+    <script defer src="../js/carregarMenu.js"></script>
+    <script defer src="../js/carregarNavbarSuperior.js"></script>
+    <script defer src="../js/navegacao.js"></script>
+    <script defer src="../js/cadastrarHolerite.js"></script>
 </head>
+
 <body>
-    <div id="menu"></div>
-    <h1>Cadastrar Holerite</h1>
-
-<form id="formHolerite">
-
-<select id="funcionarioId" required>
-
-    <option value="">
-        Selecione um funcionário
-    </option>
-
-</select>
-
-    <input
-        type="text"
-        id="descricao"
-        placeholder="Descrição"
-        required
-    >
-
-    <input
-        type="number"
-        step="0.01"
-        id="salario"
-        placeholder="Salário"
-        required
-    >
-
-    <input
-        type="number"
-        step="0.01"
-        id="inss"
-        placeholder="INSS"
-        required
-    >
-
-    <input
-        type="number"
-        step="0.01"
-        id="onibus"
-        placeholder="Ônibus Fretado"
-        required
-    >
-
-    <input
-        type="number"
-        step="0.01"
-        id="vale"
-        placeholder="Vale Alimentação"
-        required
-    >
-
-    <button type="submit">
-        Salvar Holerite
+    <button id="btnMenuMobile">
+        <img src="../assents/icons/menu.svg" alt="Menu">
     </button>
+    <div id="menu"></div>
 
-</form>
+    <div id="navbarSuperior"></div>
 
-<p id="mensagem"></p>
+    <main class="layout-principal">
 
-<script src="../js/cadastrarHolerite.js"></script>
-<script src="../js/carregarMenu.js"></script>
-<script defer src="../js/auth.js"></script>
+        <button id="btnVoltar" class="btn-voltar">
+            ← Voltar
+        </button>
+
+        <h1>Cadastrar Holerite</h1>
+
+        <p class="subtitulo">
+            Preencha os dados abaixo para gerar um novo holerite.
+        </p>
+
+        <div class="cabecalho-funcionario">
+
+            <div class="avatar-funcionario">
+                <img src="../assents/icons/account_circle.svg" alt="Funcionário">
+            </div>
+
+            <div class="info-funcionario">
+                <h2 id="nomeCabecalho">Carregando...</h2>
+                <p id="cargoCabecalho">Cargo</p>
+            </div>
+
+        </div>
+
+        <form id="formHolerite">
+
+            <span class="section-label">Detalhes do Holerite</span>
+
+            <div class="field-group full">
+                <label for="descricao">Descrição</label>
+                <input
+                    type="text"
+                    id="descricao"
+                    placeholder="Ex: Holerite - Julho/2026"
+                    required
+                >
+            </div>
+
+            <div class="field-group">
+                <label for="salario">Salário Bruto</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="salario"
+                    placeholder="0,00"
+                    required
+                >
+            </div>
+
+            <span class="section-label">Descontos e Benefícios</span>
+
+            <div class="field-group">
+                <label for="inss">INSS</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="inss"
+                    placeholder="0,00"
+                    required
+                >
+            </div>
+
+            <div class="field-group">
+                <label for="onibus">Ônibus Fretado</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="onibus"
+                    placeholder="0,00"
+                    required
+                >
+            </div>
+
+            <div class="field-group">
+                <label for="vale">Vale Alimentação</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    id="vale"
+                    placeholder="0,00"
+                    required
+                >
+            </div>
+
+            <div class="resumo-holerite full" id="resumoHolerite">
+
+                <div class="resumo-item">
+                    <span class="resumo-label">Total de Descontos</span>
+                    <span class="resumo-valor" id="resumoDescontos">R$ 0,00</span>
+                </div>
+
+                <div class="resumo-item resumo-liquido">
+                    <span class="resumo-label">Total Líquido</span>
+                    <span class="resumo-valor" id="resumoLiquido">R$ 0,00</span>
+                </div>
+
+            </div>
+
+            <div class="form-footer">
+
+                <button type="button" id="btnCancelar">
+                    Cancelar
+                </button>
+
+                <button type="submit">
+                    Salvar Holerite
+                </button>
+
+            </div>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+    </main>
+
 </body>
 </html>

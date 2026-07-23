@@ -14,6 +14,10 @@ function abrirHolerites(id) {
     window.location.href = `holerites-funcionario.html?id=${id}`;
 }
 
+function abrirCadastrarHolerite(id) {
+    window.location.href = `cadastrar-holerite.html?id=${id}`;
+}
+
 function configurarBotaoVoltar(destino) {
 
     const btn = document.getElementById("btnVoltar");

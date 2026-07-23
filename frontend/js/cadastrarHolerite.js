@@ -1,58 +1,138 @@
+const params =
+    new URLSearchParams(window.location.search);
+
+const funcionarioId = params.get("id");
+
 const token =
-    localStorage.getItem('token');
+    localStorage.getItem("token");
 
+const form =
+    document.getElementById("formHolerite");
 
-async function carregarFuncionarios() {
+const mensagem =
+    document.getElementById("mensagem");
 
-    const response = await fetch(
-        'http://localhost:3000/funcionarios',
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
+// Se por algum motivo a página for aberta sem um
+// funcionário definido, volta para a lista.
+if (!funcionarioId) {
+
+    window.location.href = "funcionarios.html";
+
+}
+
+async function carregarFuncionario() {
+
+    try {
+
+        const response = await fetch(
+
+            `http://localhost:3000/funcionarios/${funcionarioId}`,
+
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             }
+
+        );
+
+        if (!response.ok) {
+            throw new Error("Funcionário não encontrado");
         }
-    );
 
-    const funcionarios =
-        await response.json();
+        const funcionario = await response.json();
 
-    const select =
-        document.getElementById('funcionarioId');
+        document.getElementById("nomeCabecalho").textContent =
+            funcionario.nome_completo;
 
-    funcionarios.forEach(funcionario => {
+        document.getElementById("cargoCabecalho").textContent =
+            funcionario.cargo;
 
-        select.innerHTML += `
-            <option value="${funcionario.id}">
-                ${funcionario.nome_completo}
-            </option>
-        `;
+    }
 
+    catch (erro) {
+
+        console.error(erro);
+
+        document.getElementById("nomeCabecalho").textContent =
+            "Funcionário não encontrado";
+
+        document.getElementById("cargoCabecalho").textContent = "";
+
+    }
+
+}
+
+carregarFuncionario();
+
+function formatarMoeda(valor) {
+
+    return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
     });
 
 }
 
-carregarFuncionarios();
+function atualizarResumo() {
 
+    const salario =
+        Number(document.getElementById("salario").value) || 0;
 
-const form =
-    document.getElementById('formHolerite');
+    const inss =
+        Number(document.getElementById("inss").value) || 0;
 
+    const onibus =
+        Number(document.getElementById("onibus").value) || 0;
 
-form.addEventListener('submit', async (e) => {
+    const vale =
+        Number(document.getElementById("vale").value) || 0;
+
+    const totalDescontos =
+        inss + onibus + vale;
+
+    const totalLiquido =
+        salario - totalDescontos;
+
+    document.getElementById("resumoDescontos").textContent =
+        formatarMoeda(totalDescontos);
+
+    document.getElementById("resumoLiquido").textContent =
+        formatarMoeda(totalLiquido);
+
+}
+
+["salario", "inss", "onibus", "vale"].forEach(campoId => {
+
+    document
+        .getElementById(campoId)
+        .addEventListener("input", atualizarResumo);
+
+});
+
+document
+    .getElementById("btnCancelar")
+    .addEventListener("click", () => {
+
+        window.location.href = `funcionario.html?id=${funcionarioId}`;
+
+    });
+
+form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
     const salario =
-        Number(document.getElementById('salario').value);
+        Number(document.getElementById("salario").value);
 
     const inss =
-        Number(document.getElementById('inss').value);
+        Number(document.getElementById("inss").value);
 
     const onibus =
-        Number(document.getElementById('onibus').value);
+        Number(document.getElementById("onibus").value);
 
     const vale =
-        Number(document.getElementById('vale').value);
+        Number(document.getElementById("vale").value);
 
     const totalDescontos =
         inss + onibus + vale;
@@ -62,13 +142,10 @@ form.addEventListener('submit', async (e) => {
 
     const holerite = {
 
-        funcionario_id:
-            Number(
-                document.getElementById('funcionarioId').value
-            ),
+        funcionario_id: Number(funcionarioId),
 
         descricao:
-            document.getElementById('descricao').value,
+            document.getElementById("descricao").value,
 
         inss_normal: inss,
 
@@ -86,22 +163,79 @@ form.addEventListener('submit', async (e) => {
 
     };
 
-    const response = await fetch(
-        'http://localhost:3000/holerites',
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(holerite)
+    const botaoSalvar =
+        form.querySelector('button[type="submit"]');
+
+    botaoSalvar.disabled = true;
+
+    mensagem.className = "";
+    mensagem.textContent = "Salvando...";
+
+    try {
+
+        const response = await fetch(
+
+            "http://localhost:3000/holerites",
+
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(holerite)
+            }
+
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            mensagem.className = "sucesso";
+
+            mensagem.textContent =
+                data.mensagem || "Holerite cadastrado com sucesso!";
+
+            form.reset();
+
+            atualizarResumo();
+
+            setTimeout(() => {
+
+                window.location.href =
+                    `holerites-funcionario.html?id=${funcionarioId}`;
+
+            }, 1200);
+
         }
-    );
 
-    const data = await response.json();
+        else {
 
-    document.getElementById('mensagem')
-        .textContent =
-        data.mensagem || data.erro;
+            mensagem.className = "erro";
+
+            mensagem.textContent =
+                data.erro || "Erro ao cadastrar holerite.";
+
+            botaoSalvar.disabled = false;
+
+        }
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+        mensagem.className = "erro";
+
+        mensagem.textContent =
+            "Erro ao conectar com o servidor.";
+
+        botaoSalvar.disabled = false;
+
+    }
 
 });
+
+configurarBotaoVoltar(`funcionario.html?id=${funcionarioId}`);

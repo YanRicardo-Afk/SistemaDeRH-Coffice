@@ -1,97 +1,634 @@
-/* cadastrar-holerite.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* ===== COFFICE — cadastrar-holerite.css ===== */
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #E5CDB1;
-    padding: 28px 32px;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+
+  --bg:#E5CDB1;
+  --dark:#3E1D0E;
+  --accent:#A1663C;
+  --accent-hover:#8a5230;
+
+  --sucesso:#3B6D11;
+  --sucesso-hover:#325C0E;
+
+  --text:#1a1008;
+  --text-muted:#7A6659;
+
+  --border:rgba(62,29,14,.16);
+  --border-soft:rgba(62,29,14,.10);
+
+  --surface:#fdf8f3;
+
+  --radius-sm:8px;
+  --radius:14px;
+
+  --shadow:
+    0 1px 2px rgba(62,29,14,.04),
+    0 8px 24px -12px rgba(62,29,14,.18);
+
+  --focus-ring:
+    0 0 0 3px rgba(161,102,60,.28);
+
+  --font:'Inter',sans-serif;
+
 }
 
-h1 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #3E1D0E;
-    border-bottom: 2px solid #A1663C;
-    padding-bottom: 10px;
-    margin-bottom: 24px;
+body{
+
+    font-family:var(--font);
+
+    background:var(--bg);
+
+    color:var(--text);
+
 }
 
-#formHolerite {
-    background: rgba(255, 255, 255, 0.35);
-    border: 0.5px solid rgba(62, 29, 14, 0.2);
-    border-radius: 12px;
-    padding: 24px 28px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+h1{
+
+    margin:0;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
 }
 
-/* Select e Descrição ocupam linha inteira */
-#funcionarioId,
-#descricao {
-    grid-column: 1 / -1;
+.subtitulo{
+
+    margin-top:8px;
+
+    margin-bottom:30px;
+
+    color:var(--text-muted);
+
+    font-size:15px;
+
 }
 
-/* Divisor visual entre campos e valores */
-#formHolerite hr {
-    grid-column: 1 / -1;
-    border: none;
-    border-top: 0.5px solid rgba(62, 29, 14, 0.15);
-    margin: 0;
+.btn-voltar{
+
+    background:none;
+
+    border:none;
+
+    color:var(--accent);
+
+    cursor:pointer;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    padding:0;
+
+    margin-bottom:18px;
+
+    transition:.2s;
+
 }
 
-/* Botão ocupa linha inteira */
-#formHolerite button[type="submit"] {
-    grid-column: 1 / -1;
+.btn-voltar:hover{
+
+    color:var(--dark);
+
+    transform:translateX(-4px);
+
 }
 
-/* Inputs e Select */
-#formHolerite input,
-#formHolerite select {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: #3E1D0E;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(62, 29, 14, 0.25);
-    border-radius: 8px;
-    padding: 9px 12px;
-    outline: none;
-    width: 100%;
+/* Cabeçalho com dados do funcionário selecionado */
+.cabecalho-funcionario{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:rgba(255,255,255,.35);
+
+    border:1px solid var(--border-soft);
+
+    border-radius:var(--radius);
+
+    padding:22px 26px;
+
+    margin-bottom:28px;
+
 }
 
-#formHolerite input::placeholder {
-    color: rgba(62, 29, 14, 0.4);
+.avatar-funcionario{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:#F8F4F0;
+
+    border:2px solid var(--accent);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
 }
 
-#formHolerite input:focus,
-#formHolerite select:focus {
-    border-color: #A1663C;
-    background: rgba(255, 255, 255, 0.75);
+.avatar-funcionario img{
+
+    width:36px;
+
+    height:36px;
+
 }
 
-/* Botão */
-#formHolerite button[type="submit"] {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 11px 28px;
-    border-radius: 8px;
-    border: none;
-    background: #A1663C;
-    color: #fff;
-    cursor: pointer;
-    transition: opacity 0.15s;
+.info-funcionario{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    min-width:0;
+
 }
 
-#formHolerite button[type="submit"]:hover {
-    opacity: 0.85;
+#nomeCabecalho{
+
+    margin:0;
+
+    color:var(--dark);
+
+    font-size:21px;
+
+    font-weight:700;
+
+    overflow-wrap:anywhere;
+
 }
 
-/* Mensagem de retorno */
-#mensagem {
-    margin-top: 14px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #3B6D11;
-    min-height: 18px;
+#cargoCabecalho{
+
+    margin-top:6px;
+
+    color:var(--accent);
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* Formulário */
+#formHolerite{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    background:#fff;
+
+    border:1px solid var(--border-soft);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:32px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:24px;
+
+}
+
+.field-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    min-width:0;
+
+}
+
+.field-group.full{
+
+    grid-column:1/-1;
+
+}
+
+.field-group label{
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+    color:var(--text-muted);
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+}
+
+.section-label{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:.68rem;
+
+    font-weight:700;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+
+    color:var(--dark);
+
+    margin-top:12px;
+
+}
+
+.section-label:first-child{
+
+    margin-top:0;
+
+}
+
+.section-label::before{
+
+    content:"";
+
+    width:14px;
+
+    height:2px;
+
+    background:var(--accent);
+
+    border-radius:2px;
+
+}
+
+#formHolerite input{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:10px 13px;
+
+    border:1.5px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    color:var(--text);
+
+    outline:none;
+
+    transition:border-color .15s,
+               background .15s,
+               box-shadow .15s;
+
+}
+
+#formHolerite input::placeholder{
+
+    color:#b8956d;
+
+}
+
+#formHolerite input:hover{
+
+    border-color:var(--accent);
+
+}
+
+#formHolerite input:focus{
+
+    border-color:var(--accent);
+
+    background:#fff;
+
+    box-shadow:var(--focus-ring);
+
+}
+
+/* Resumo de valores calculados automaticamente */
+.resumo-holerite{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-sm);
+
+    padding:16px 20px;
+
+    margin-top:4px;
+
+}
+
+.resumo-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    min-width:160px;
+
+}
+
+.resumo-label{
+
+    font-size:.7rem;
+
+    font-weight:600;
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+    color:var(--text-muted);
+
+}
+
+.resumo-valor{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+.resumo-liquido .resumo-valor{
+
+    color:var(--sucesso);
+
+}
+
+/* Rodapé de ações */
+.form-footer{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:8px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border-soft);
+
+}
+
+#btnCancelar{
+
+    padding:11px 26px;
+
+    border:1.5px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:transparent;
+
+    color:var(--dark);
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#btnCancelar:hover{
+
+    background:rgba(62,29,14,.06);
+
+}
+
+#formHolerite button[type="submit"]{
+
+    padding:11px 30px;
+
+    border:none;
+
+    border-radius:var(--radius-sm);
+
+    background:var(--sucesso);
+
+    color:#fff;
+
+    font-family:var(--font);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#formHolerite button[type="submit"]:hover{
+
+    background:var(--sucesso-hover);
+
+}
+
+#formHolerite button[type="submit"]:active{
+
+    transform:translateY(1px);
+
+}
+
+#formHolerite button[type="submit"]:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+#mensagem{
+
+    margin-top:18px;
+
+    min-height:22px;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+    color:var(--text-muted);
+
+}
+
+#mensagem.sucesso{
+
+    color:var(--sucesso);
+
+}
+
+#mensagem.erro{
+
+    color:#C0392B;
+
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+@media (max-width:768px){
+
+    .layout-principal{
+
+        padding:20px 16px;
+
+        box-sizing:border-box;
+
+    }
+
+    h1{
+
+        font-size:26px;
+
+    }
+
+    .subtitulo{
+
+        font-size:14px;
+
+        margin-bottom:24px;
+
+    }
+
+    .cabecalho-funcionario{
+
+        padding:16px;
+
+        gap:14px;
+
+        margin-bottom:20px;
+
+    }
+
+    .avatar-funcionario{
+
+        width:54px;
+
+        height:54px;
+
+    }
+
+    .avatar-funcionario img{
+
+        width:30px;
+
+        height:30px;
+
+    }
+
+    #nomeCabecalho{
+
+        font-size:18px;
+
+    }
+
+    #cargoCabecalho{
+
+        font-size:13px;
+
+    }
+
+    #formHolerite{
+
+        grid-template-columns:1fr;
+
+        padding:20px;
+
+        border-radius:16px;
+
+        gap:18px;
+
+    }
+
+    .resumo-holerite{
+
+        flex-direction:column;
+
+    }
+
+    .form-footer{
+
+        flex-direction:column-reverse;
+
+        align-items:stretch;
+
+    }
+
+    .form-footer button{
+
+        width:100%;
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        transition:none !important;
+
+        animation:none !important;
+
+    }
+
 }

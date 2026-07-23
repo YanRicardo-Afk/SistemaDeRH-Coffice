@@ -98,6 +98,14 @@ document
     });
 
 document
+    .getElementById("btnAdicionarHolerite")
+    .addEventListener("click", () => {
+
+        abrirCadastrarHolerite(id);
+
+    });
+
+document
     .getElementById("btnHolerites")
     .addEventListener("click", () => {
 
