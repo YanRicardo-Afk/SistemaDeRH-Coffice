@@ -179,6 +179,53 @@ h1 {
     border-color: #A1663C;
 }
 
+.btn-historico-ponto {
+    background: none;
+    border: 1px solid rgba(62, 29, 14, 0.25);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+    color: #A1663C;
+    cursor: pointer;
+    transition: 0.15s;
+    margin-left: 4px;
+}
+
+.btn-historico-ponto:hover {
+    background: #A1663C;
+    color: #ffffff;
+    border-color: #A1663C;
+}
+
+/* ── Modal de histórico de auditoria ──────────────────────────────── */
+
+.modal-auditoria {
+    max-width: 480px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.auditoria-item {
+    border: 1px solid rgba(62, 29, 14, 0.15);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+}
+
+.auditoria-item p {
+    margin: 4px 0;
+}
+
+.auditoria-item strong {
+    font-size: 13px;
+}
+
+.auditoria-original {
+    background: rgba(161, 102, 60, 0.08);
+}
+
 /* ── Modais (comprovante / ajuste de ponto) ───────────────────────── */
 
 .modal-overlay {

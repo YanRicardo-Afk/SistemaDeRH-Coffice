@@ -54,6 +54,12 @@ async function carregarPontos() {
             ? '<span class="selo-ajustado" title="Registro ajustado pelo RH">ajustado</span>'
             : '';
 
+        // O botão de histórico só aparece em registros que já foram
+        // ajustados ao menos uma vez.
+        const botaoHistorico = ponto.ajustado
+            ? `<button class="btn-historico-ponto" title="Ver histórico de alterações" data-id="${ponto.id}">🕓</button>`
+            : '';
+
         linhas += `
             <tr data-ponto-id="${ponto.id}" data-entrada="${ponto.entrada || ''}" data-saida="${ponto.saida || ''}" data-data="${ponto.data}">
                 <td>${new Date(ponto.data).toLocaleDateString("pt-BR")} ${seloAjuste}</td>
@@ -66,6 +72,7 @@ async function carregarPontos() {
                         title="Editar registro"
                         data-id="${ponto.id}"
                     >✎</button>
+                    ${botaoHistorico}
                 </td>
             </tr>
         `;
@@ -86,9 +93,13 @@ async function carregarPontos() {
         </table>
     `;
 
-    // Reconecta os botões de editar após recriar a tabela
+    // Reconecta os botões de editar e histórico após recriar a tabela
     document.querySelectorAll('.btn-editar-ponto').forEach(botao => {
         botao.addEventListener('click', () => abrirModalAjuste(botao.dataset.id));
+    });
+
+    document.querySelectorAll('.btn-historico-ponto').forEach(botao => {
+        botao.addEventListener('click', () => abrirModalAuditoria(botao.dataset.id));
     });
 }
 
@@ -140,6 +151,95 @@ function fecharModalAjuste() {
 }
 
 btnCancelarAjuste?.addEventListener('click', fecharModalAjuste);
+
+// ── Histórico de auditoria (visualização das alterações de um ponto) ──
+// Busca GET /pontos/:id/auditoria, que retorna o registro original
+// (imutável) e a lista de todos os ajustes feitos pelo RH naquele ponto,
+// com data/hora, quem alterou e os valores antigo/novo de cada edição.
+
+const modalAuditoria = document.getElementById('modalAuditoria');
+const modalAuditoriaData = document.getElementById('modalAuditoriaData');
+const auditoriaConteudo = document.getElementById('auditoriaConteudo');
+const btnFecharAuditoria = document.getElementById('btnFecharAuditoria');
+
+function formatarHoraExibicao(hora) {
+    return hora ? hora.slice(0, 5) : '-';
+}
+
+function formatarDataHoraExibicao(dataHora) {
+    return new Date(dataHora).toLocaleString('pt-BR');
+}
+
+async function abrirModalAuditoria(pontoId) {
+
+    modalAuditoriaData.textContent = '';
+    auditoriaConteudo.innerHTML = '<p>Carregando histórico...</p>';
+    modalAuditoria.classList.add('ativo');
+
+    try {
+
+        const response = await fetch(
+            `${API_BASE}/pontos/${pontoId}/auditoria`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const dados = await response.json();
+
+        if (!response.ok) {
+            throw new Error(dados.erro || 'Erro ao buscar histórico.');
+        }
+
+        modalAuditoriaData.textContent =
+            `Data do registro: ${new Date(dados.registroOriginal.data).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}`;
+
+        // Registro original, sempre exibido primeiro (nunca é alterado)
+        let html = `
+            <div class="auditoria-item auditoria-original">
+                <strong>Registro original (funcionário)</strong>
+                <p>Entrada: ${formatarHoraExibicao(dados.registroOriginal.entrada)} —
+                   Saída: ${formatarHoraExibicao(dados.registroOriginal.saida)} —
+                   Saldo: ${dados.registroOriginal.saldo || '-'}</p>
+            </div>
+        `;
+
+        if (dados.ajustes.length === 0) {
+            html += '<p>Nenhum ajuste foi feito neste registro.</p>';
+        } else {
+
+            html += dados.ajustes.map(ajuste => `
+                <div class="auditoria-item">
+                    <strong>Ajuste em ${formatarDataHoraExibicao(ajuste.editado_em)}</strong>
+                    <p>Alterado por: ${ajuste.editado_por_nome} (matrícula ${ajuste.editado_por_matricula})</p>
+                    <p>
+                        De: entrada ${formatarHoraExibicao(ajuste.entrada_anterior)},
+                        saída ${formatarHoraExibicao(ajuste.saida_anterior)},
+                        saldo ${ajuste.saldo_anterior || '-'}
+                    </p>
+                    <p>
+                        Para: entrada ${formatarHoraExibicao(ajuste.entrada_ajustada)},
+                        saída ${formatarHoraExibicao(ajuste.saida_ajustada)},
+                        saldo ${ajuste.saldo_ajustado || '-'}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        auditoriaConteudo.innerHTML = html;
+
+    } catch (erro) {
+        console.error(erro);
+        auditoriaConteudo.innerHTML =
+            `<p class="modal-ajuste-erro">${erro.message || 'Erro ao buscar histórico.'}</p>`;
+    }
+}
+
+btnFecharAuditoria?.addEventListener('click', () => {
+    modalAuditoria.classList.remove('ativo');
+});
 
 btnSalvarAjuste?.addEventListener('click', async () => {
 
