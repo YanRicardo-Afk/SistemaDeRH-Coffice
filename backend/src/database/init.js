@@ -80,6 +80,38 @@ async function createTables() {
             )
         `);
 
+        // TABELA PONTO_AJUSTES
+        // Guarda o histórico de edições feitas pelo RH em registros de ponto.
+        // O registro original em `pontos` nunca é alterado (Portaria 671/2021):
+        // cada edição gera uma nova linha aqui, com valor anterior, valor novo,
+        // quem editou e quando. Ver também: database/migrations/001_criar_tabela_ponto_ajustes.sql
+        await pool.execute(`
+            CREATE TABLE IF NOT EXISTS ponto_ajustes (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                ponto_id INT NOT NULL,
+                funcionario_id INT NOT NULL,
+                editado_por INT NOT NULL,
+                entrada_anterior TIME NULL,
+                saida_anterior TIME NULL,
+                saldo_anterior VARCHAR(20) NULL,
+                entrada_ajustada TIME NULL,
+                saida_ajustada TIME NULL,
+                saldo_ajustado VARCHAR(20) NULL,
+                editado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+                FOREIGN KEY (ponto_id)
+                REFERENCES pontos(id)
+                ON DELETE CASCADE,
+
+                FOREIGN KEY (funcionario_id)
+                REFERENCES funcionarios(id)
+                ON DELETE CASCADE,
+
+                FOREIGN KEY (editado_por)
+                REFERENCES funcionarios(id)
+            )
+        `);
+
         console.log('✅ Tabelas criadas com sucesso!');
 
         process.exit();

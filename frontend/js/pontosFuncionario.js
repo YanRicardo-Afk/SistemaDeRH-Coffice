@@ -2,6 +2,8 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 const token = localStorage.getItem("token");
 
+const API_BASE = "http://localhost:3000";
+
 async function carregarPontos() {
 
     let url;
@@ -9,12 +11,12 @@ async function carregarPontos() {
     if (id) {
 
         // RH consultando outro funcionário
-        url = `http://localhost:3000/pontos/funcionario/${id}`;
+        url = `${API_BASE}/pontos/funcionario/${id}`;
 
     } else {
 
         // Usuário consultando seus próprios pontos
-        url = "http://localhost:3000/pontos/meus";
+        url = `${API_BASE}/pontos/meus`;
 
     }
 
@@ -46,12 +48,25 @@ async function carregarPontos() {
                          : saldo.startsWith('-') && saldo !== '-' ? 'ponto-saldo-negativo'
                          : '';
 
+        // Registros ajustados pelo RH recebem um selo visual. O registro
+        // original enviado pelo funcionário continua intacto no banco.
+        const seloAjuste = ponto.ajustado
+            ? '<span class="selo-ajustado" title="Registro ajustado pelo RH">ajustado</span>'
+            : '';
+
         linhas += `
-            <tr>
-                <td>${new Date(ponto.data).toLocaleDateString("pt-BR")}</td>
-                <td>${ponto.entrada}</td>
+            <tr data-ponto-id="${ponto.id}" data-entrada="${ponto.entrada || ''}" data-saida="${ponto.saida || ''}" data-data="${ponto.data}">
+                <td>${new Date(ponto.data).toLocaleDateString("pt-BR")} ${seloAjuste}</td>
+                <td>${ponto.entrada || '-'}</td>
                 <td>${ponto.saida || '-'}</td>
                 <td class="${saldoClass}">${saldo}</td>
+                <td>
+                    <button
+                        class="btn-editar-ponto"
+                        title="Editar registro"
+                        data-id="${ponto.id}"
+                    >✎</button>
+                </td>
             </tr>
         `;
     });
@@ -64,13 +79,206 @@ async function carregarPontos() {
                     <th>Entrada</th>
                     <th>Saída</th>
                     <th>Saldo</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>${linhas}</tbody>
         </table>
     `;
+
+    // Reconecta os botões de editar após recriar a tabela
+    document.querySelectorAll('.btn-editar-ponto').forEach(botao => {
+        botao.addEventListener('click', () => abrirModalAjuste(botao.dataset.id));
+    });
 }
 
 carregarPontos();
 
 configurarBotaoVoltar(`funcionario.html?id=${id}`);
+
+// ── Editar ponto (RH) ────────────────────────────────────────────────
+// Abre um modal simples para o RH corrigir a entrada e/ou a saída de um
+// registro. A alteração NUNCA sobrescreve o ponto original: o backend
+// cria um novo registro de ajuste (auditoria), conforme a Portaria
+// 671/2021.
+
+const modalAjuste = document.getElementById('modalAjustePonto');
+const modalAjusteData = document.getElementById('modalAjusteData');
+const inputAjusteEntrada = document.getElementById('inputAjusteEntrada');
+const inputAjusteSaida = document.getElementById('inputAjusteSaida');
+const mensagemErroAjuste = document.getElementById('mensagemErroAjuste');
+const btnSalvarAjuste = document.getElementById('btnSalvarAjuste');
+const btnCancelarAjuste = document.getElementById('btnCancelarAjuste');
+
+let pontoEmEdicaoId = null;
+
+function abrirModalAjuste(pontoId) {
+
+    const linha = document.querySelector(`tr[data-ponto-id="${pontoId}"]`);
+    if (!linha) return;
+
+    pontoEmEdicaoId = pontoId;
+
+    const data = linha.dataset.data;
+    const entrada = linha.dataset.entrada;
+    const saida = linha.dataset.saida;
+
+    modalAjusteData.textContent =
+        `Data: ${new Date(data).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}`;
+
+    // <input type="time"> aceita "HH:MM" ou "HH:MM:SS"
+    inputAjusteEntrada.value = entrada ? entrada.slice(0, 8) : '';
+    inputAjusteSaida.value = saida ? saida.slice(0, 8) : '';
+
+    mensagemErroAjuste.textContent = '';
+    modalAjuste.classList.add('ativo');
+}
+
+function fecharModalAjuste() {
+    modalAjuste.classList.remove('ativo');
+    pontoEmEdicaoId = null;
+}
+
+btnCancelarAjuste?.addEventListener('click', fecharModalAjuste);
+
+btnSalvarAjuste?.addEventListener('click', async () => {
+
+    if (!pontoEmEdicaoId) return;
+
+    const entrada = inputAjusteEntrada.value;
+    const saida = inputAjusteSaida.value;
+
+    if (!entrada && !saida) {
+        mensagemErroAjuste.textContent =
+            'Informe ao menos um horário (entrada ou saída).';
+        return;
+    }
+
+    btnSalvarAjuste.disabled = true;
+    mensagemErroAjuste.textContent = '';
+
+    try {
+
+        const response = await fetch(
+            `${API_BASE}/pontos/${pontoEmEdicaoId}/ajustar`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    entrada: entrada || undefined,
+                    saida: saida || undefined
+                })
+            }
+        );
+
+        const dados = await response.json();
+
+        if (!response.ok) {
+            throw new Error(dados.erro || 'Erro ao ajustar ponto.');
+        }
+
+        fecharModalAjuste();
+
+        // Recarrega a lista para exibir o valor já ajustado e o selo
+        await carregarPontos();
+
+    } catch (erro) {
+        console.error(erro);
+        mensagemErroAjuste.textContent = erro.message || 'Erro ao ajustar ponto.';
+    } finally {
+        btnSalvarAjuste.disabled = false;
+    }
+});
+
+// ── Gerar Comprovante em PDF ─────────────────────────────────────────
+
+const inputPeriodo = document.getElementById('periodoComprovante');
+const btnGerarComprovante = document.getElementById('btnGerarComprovante');
+const modalErro = document.getElementById('modalErroComprovante');
+const mensagemErro = document.getElementById('mensagemErroComprovante');
+
+if (inputPeriodo) {
+    const hoje = new Date();
+    const mesAtual = String(hoje.getMonth() + 1).padStart(2, '0');
+    inputPeriodo.value = `${hoje.getFullYear()}-${mesAtual}`;
+}
+
+function mostrarErroComprovante(texto) {
+    mensagemErro.textContent = texto;
+    modalErro.classList.add('ativo');
+}
+
+document.getElementById('btnFecharErroComprovante')
+    ?.addEventListener('click', () => modalErro.classList.remove('ativo'));
+
+function calcularIntervaloDoMes(valorMesAno) {
+    const [ano, mes] = valorMesAno.split('-').map(Number);
+    const primeiroDia = new Date(ano, mes - 1, 1);
+    const ultimoDia = new Date(ano, mes, 0);
+
+    const paraISO = (d) => d.toISOString().split('T')[0];
+
+    return {
+        dataInicio: paraISO(primeiroDia),
+        dataFim: paraISO(ultimoDia)
+    };
+}
+
+async function gerarComprovante() {
+
+    if (!inputPeriodo.value) {
+        mostrarErroComprovante('Selecione um período para gerar o comprovante.');
+        return;
+    }
+
+    const { dataInicio, dataFim } = calcularIntervaloDoMes(inputPeriodo.value);
+
+    const textoOriginal = btnGerarComprovante.textContent;
+    btnGerarComprovante.disabled = true;
+    btnGerarComprovante.textContent = 'Gerando...';
+
+    try {
+
+        // Nesta página o "id" é sempre o funcionário que o RH está
+        // consultando (sem id, é o próprio RH vendo seus pontos).
+        const url = id
+            ? `${API_BASE}/pontos/comprovante/${id}?dataInicio=${dataInicio}&dataFim=${dataFim}`
+            : `${API_BASE}/pontos/comprovante?dataInicio=${dataInicio}&dataFim=${dataFim}`;
+
+        const response = await fetch(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            const erro = await response.json().catch(() => ({}));
+            throw new Error(erro.erro || 'Erro ao gerar comprovante.');
+        }
+
+        const blob = await response.blob();
+
+        const disposicao = response.headers.get('Content-Disposition') || '';
+        const match = disposicao.match(/filename="?([^"]+)"?/);
+        const nomeArquivo = match ? match[1] : 'comprovante_ponto.pdf';
+
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = nomeArquivo;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+    } catch (erro) {
+        console.error(erro);
+        mostrarErroComprovante(erro.message || 'Erro ao gerar comprovante.');
+    } finally {
+        btnGerarComprovante.disabled = false;
+        btnGerarComprovante.textContent = textoOriginal;
+    }
+}
+
+btnGerarComprovante?.addEventListener('click', gerarComprovante);

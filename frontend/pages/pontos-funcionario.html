@@ -26,8 +26,59 @@
 
     <h1>Histórico de Pontos</h1>
 
+    <div class="ponto-toolbar">
+        <label for="periodoComprovante">Período</label>
+        <input type="month" id="periodoComprovante">
+        <button id="btnGerarComprovante" class="btn-comprovante">
+            Gerar Comprovante
+        </button>
+    </div>
+
 <div id="listaPontos"></div>
 </main>
+
+<!-- Modal de ajuste de ponto (RH) -->
+<div id="modalAjustePonto" class="modal-overlay">
+    <div class="modal-sucesso modal-ajuste-ponto">
+
+        <h2>Ajustar Registro de Ponto</h2>
+
+        <p class="modal-ajuste-data" id="modalAjusteData"></p>
+
+        <div class="modal-ajuste-campo">
+            <label for="inputAjusteEntrada">Entrada</label>
+            <input type="time" id="inputAjusteEntrada" step="1">
+        </div>
+
+        <div class="modal-ajuste-campo">
+            <label for="inputAjusteSaida">Saída</label>
+            <input type="time" id="inputAjusteSaida" step="1">
+        </div>
+
+        <p class="modal-ajuste-aviso">
+            O registro original feito pelo funcionário não é apagado nem
+            sobrescrito: esta alteração fica registrada no histórico de
+            auditoria, com data, hora e responsável.
+        </p>
+
+        <div class="modal-ajuste-acoes">
+            <button id="btnCancelarAjuste" class="btn-secundario">Cancelar</button>
+            <button id="btnSalvarAjuste" class="btn-comprovante">Salvar Ajuste</button>
+        </div>
+
+        <p id="mensagemErroAjuste" class="modal-ajuste-erro"></p>
+
+    </div>
+</div>
+
+<!-- Modal de erro no comprovante -->
+<div id="modalErroComprovante" class="modal-overlay">
+    <div class="modal-sucesso">
+        <p id="mensagemErroComprovante"></p>
+        <button id="btnFecharErroComprovante">Fechar</button>
+    </div>
+</div>
+
 <script defer src="../js/navegacao.js"></script>
 <script defer src="../js/pontosFuncionario.js"></script>
 <script defer src="../js/carregarMenu.js"></script>

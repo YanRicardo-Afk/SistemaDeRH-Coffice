@@ -24,8 +24,22 @@
 
     <h1>Meu Histórico de Pontos</h1>
 
+    <div class="ponto-toolbar">
+        <label for="periodoComprovante">Período</label>
+        <input type="month" id="periodoComprovante">
+        <button id="btnGerarComprovante" class="btn-comprovante">
+            Gerar Comprovante
+        </button>
+    </div>
+
 <div id="listaPontos"></div>
 </main>
+<div id="modalErroComprovante" class="modal-overlay">
+    <div class="modal-sucesso">
+        <p id="mensagemErroComprovante"></p>
+        <button id="btnFecharErroComprovante">Fechar</button>
+    </div>
+</div>
 <script defer src="../js/navegacao.js"></script>
 <script defer src="../js/meusPontos.js"></script>
 <script defer src="../js/carregarMenu.js"></script>

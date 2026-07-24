@@ -12,8 +12,10 @@ npm start
 Dps usar acessar /pages/login.html
 
 oq cada um faz:
+npm install
 npm run db:create Para criar o banco de dados depois.
 npm run db:init   Para criar as tabelas.
+npm install pdfkit
 npm run db:seed   Para criar o primeiro login de acesso.
 npm start         Para rodar o projeto.
 
