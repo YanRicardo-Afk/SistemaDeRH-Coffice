@@ -198,5 +198,12 @@ O objetivo do Coffice é fornecer uma plataforma simples e eficiente para o gere
 ---
 
 ## Desenvolvido por
+ISRAEL WINICIUS MOURA SILVA
+GABRYEL DOS SANTOS SILVA
+YAN RICARDO SILVA PEREIRA
 
 Projeto desenvolvido para fins acadêmicos, aplicando conceitos de desenvolvimento web, arquitetura MVC, autenticação de usuários e integração com banco de dados MySQL.
+
+## Link do repositório GitHub.
+
+## Link do vídeo
