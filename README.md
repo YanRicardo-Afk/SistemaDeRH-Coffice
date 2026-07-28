@@ -206,4 +206,8 @@ Projeto desenvolvido para fins acadêmicos, aplicando conceitos de desenvolvimen
 
 ## Link do repositório GitHub.
 
+
+
 ## Link do vídeo
+
+https://youtu.be/ouRc0XJJ21o?si=lvjoIalgQjMP_lGz
