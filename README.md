@@ -21,7 +21,7 @@ O projeto foi desenvolvido utilizando HTML, CSS e JavaScript no front-end, com N
 
 ### Controle de Ponto
 
-![Controle de Ponto](./docs/screenshots/ponto.png)
+![Controle de Ponto](./docs/screenshots/pontos.png)
 
 ### Holerites
 
@@ -168,7 +168,7 @@ npm run db:create
 npm run db:init
 ```
 
-### 7. Popular o banco (opcional)
+### 7. Criar o primeiro login(RH)
 
 ```bash
 npm run db:seed
