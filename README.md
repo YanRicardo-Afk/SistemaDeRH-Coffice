@@ -104,7 +104,7 @@ SistemaDeRH-Coffice
 ### 1. Clone o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/YanRicardo-Afk/SistemaDeRH-Coffice.git
 ```
 
 ### 2. Entre na pasta do backend
