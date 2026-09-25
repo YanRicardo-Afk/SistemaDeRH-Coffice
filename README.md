@@ -5,6 +5,30 @@ Coffice é um sistema web de Recursos Humanos desenvolvido para centralizar o ge
 O projeto foi desenvolvido utilizando HTML, CSS e JavaScript no front-end, com Node.js, Express e MySQL no back-end, oferecendo uma aplicação simples, organizada e de fácil utilização.
 
 ---
+## Preview
+
+### Login
+
+![Tela de Login](./docs/screenshots/login.png)
+
+### Dashboard
+
+![Dashboard do Coffice](./docs/screenshots/dashboard.png)
+
+### Funcionários
+
+![Gerenciamento de Funcionários](./docs/screenshots/funcionarios.png)
+
+### Controle de Ponto
+
+![Controle de Ponto](./docs/screenshots/ponto.png)
+
+### Holerites
+
+![Gerenciamento de Holerites](./docs/screenshots/holerites.png)
+
+---
+
 
 ## Funcionalidades
 
