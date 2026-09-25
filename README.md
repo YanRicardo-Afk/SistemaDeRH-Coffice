@@ -5,7 +5,7 @@ Coffice é um sistema web de Recursos Humanos desenvolvido para centralizar o ge
 O projeto foi desenvolvido utilizando HTML, CSS e JavaScript no front-end, com Node.js, Express e MySQL no back-end, oferecendo uma aplicação simples, organizada e de fácil utilização.
 
 ---
-## Preview
+## Screenshots
 
 ### Login
 
@@ -185,9 +185,14 @@ O servidor ficará disponível em:
 ```
 http://localhost:3000/login.html
 ```
-Primeiro Login
-- usuario: rh@coffice.com
-- senha: 123456
+Credenciais de demonstração
+
+Após executar o seed, utilize as credenciais configuradas pelo projeto para acessar o perfil de RH.
+```
+usuario: rh@coffice.com
+senha: 123456
+```
+
 ---
 
 ## Organização do Sistema
@@ -232,9 +237,10 @@ Projeto desenvolvido para fins acadêmicos, aplicando conceitos de desenvolvimen
 
 ## Link do repositório GitHub.
 
-https://github.com/YanRicardo-Afk/SistemaDeRH-Coffice.git
+[Github](https://github.com/YanRicardo-Afk/SistemaDeRH-Coffice.git)
 
 ## Link do vídeo
 
-https://youtu.be/ouRc0XJJ21o?si=lvjoIalgQjMP_lGz
+[Demonstração Sistema Coffice](https://youtu.be/ouRc0XJJ21o?si=lvjoIalgQjMP_lGz)
+
 .
