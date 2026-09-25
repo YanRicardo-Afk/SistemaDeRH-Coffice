@@ -183,9 +183,11 @@ npm run dev
 O servidor ficará disponível em:
 
 ```
-http://localhost:3000
+http://localhost:3000/login.html
 ```
-
+Primeiro Login
+- usuario: rh@coffice.com
+- senha: 123456
 ---
 
 ## Organização do Sistema
